@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">common</string>
+
+    <string name="audio_call">语音通话</string>
+    <string name="video_call">视频通话</string>
+    <string name="cancel">取消</string>
+</resources>

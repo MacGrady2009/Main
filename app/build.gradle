@@ -1,0 +1,25 @@
+apply plugin: 'com.android.application'
+apply from: '../build-config.gradle'
+apply from: '../build-res.gradle'
+apply from: '../build-placeholders.gradle'
+apply from: '../dependence.gradle'
+
+
+android {
+    compileSdkVersion rootProject.ext.build_versions.compile_sdk
+
+    defaultConfig {
+        applicationId "com.android.main"
+        minSdkVersion    rootProject.ext.build_versions.min_sdk
+        targetSdkVersion rootProject.ext.build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}

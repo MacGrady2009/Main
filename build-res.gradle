@@ -1,0 +1,24 @@
+android {
+    flavorDimensions "color"
+
+    productFlavors {
+        //开发环境
+        dev {
+            resValue "string", "app_name", "iCome开发"
+        }
+        //测试环境
+        beta {
+            resValue "string", "app_name", "iCome测试"
+        }
+        //预生产环境
+        pre {
+            resValue "string", "app_name", "iComePre"
+        }
+        //生产环境
+        pro {
+            resValue "string", "app_name", "iCome"
+        }
+
+    }
+}
+

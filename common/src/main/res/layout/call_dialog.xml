@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/pop_dialog">
+
+        <LinearLayout
+            android:id="@+id/layout_audio"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/tv_audio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:paddingBottom="17dp"
+                android:paddingRight="15dp"
+                android:paddingLeft="15dp"
+                android:drawablePadding="6dp"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:textColor="@color/color_cancel"
+                android:text="@string/audio_call"
+                android:textSize="18sp"
+                android:drawableLeft="@drawable/rtc_iv_chat_status_icon" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_CFCFCF"/>
+
+        <LinearLayout
+            android:id="@+id/layout_video"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/tv_video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:paddingBottom="17dp"
+                android:paddingRight="15dp"
+                android:paddingLeft="15dp"
+                android:drawablePadding="6dp"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:textColor="@color/color_cancel"
+                android:text="@string/video_call"
+                android:textSize="18sp"
+                android:drawableLeft="@drawable/rtc_iv_choose_video_icon" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"/>
+
+    <TextView
+        android:id="@+id/tv_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/pop_dialog"
+        android:paddingTop="22dp"
+        android:paddingBottom="18dp"
+        android:gravity="center"
+        android:text="@string/cancel"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/color_cancel"/>
+    
+</LinearLayout>

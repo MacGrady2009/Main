@@ -1,0 +1,24 @@
+android {
+    flavorDimensions "color"
+
+    productFlavors {
+        //开发环境
+        dev {
+            buildConfigField 'String', 'BUGLY_APP_ID','"c7cf23b1d1"'
+        }
+        //测试环境
+        beta {
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'BUGLY_APP_ID','"c7cf23b1d1"'
+        }
+        //预生产环境
+        pre {
+            buildConfigField 'String', 'BUGLY_APP_ID','"1d91524308"'
+        }
+        //生产环境
+        pro {
+            buildConfigField 'String', 'BUGLY_APP_ID','"92615911a4"'
+        }
+    }
+}
+
