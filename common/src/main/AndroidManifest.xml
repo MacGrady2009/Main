@@ -3,6 +3,7 @@
   <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
   <application>
     <meta-data android:name="port" android:value="${PORT}"/>
+    <meta-data android:name="auth_url" android:value="${AUTH_URL}"/>
     <meta-data android:name="file_provider_auth" android:value="${FILE_PROVIDER_AUTH}"/>
   </application>
 
