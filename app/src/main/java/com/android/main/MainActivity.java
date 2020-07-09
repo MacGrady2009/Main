@@ -1,6 +1,10 @@
 package com.android.main;
 
 import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
+import com.android.common.network.DownloadHelper;
+import com.android.common.network.ProgressListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -45,6 +49,27 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            DownloadHelper downloadHelper = new DownloadHelper();
+            downloadHelper.setListener(new ProgressListener(){
+
+                @Override
+                public void onStart() {
+                    Log.d("wb005","onStart");
+                }
+
+                @Override
+                public void onProgress(long total, long progress) {
+                    Log.d("wb005","onProgress total = " +total );
+                    Log.d("wb005","onProgress progress = " +progress );
+                }
+
+                @Override
+                public void onFinish(boolean success, Object result, String msg) {
+                    Log.d("wb005","onFinish success = " +success );
+                    Log.d("wb005","onFinish msg = " +msg );
+                }
+            });
+            downloadHelper.downloadFile("https://oss.pgyer.com/be0736ca5475edf5e3b00b21cbba80c0.apk?auth_key=1594977077-288c671816bb556189333ecd3bd2bded-0-80e7ea5198a0d7a06bfab6d07588a668", Environment.getExternalStorageDirectory().getPath(),"/test.apk");
             return true;
         }
 

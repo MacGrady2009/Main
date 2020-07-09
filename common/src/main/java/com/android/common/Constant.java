@@ -14,6 +14,11 @@ public class Constant {
      * http 写超时
      */
     public static final long HTTP_WRITE_TIMEOUT = 15000;
+
+    /**
+     * http 请求地址
+     */
+    public static final String BASE_URL = "https://www.baidu.com";
     /**
      * file provider auth
      */
