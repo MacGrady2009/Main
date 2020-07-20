@@ -13,10 +13,11 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/common" />
-            <option value="$PROJECT_DIR$/guide" />
-            <option value="$PROJECT_DIR$/third" />
-            <option value="$PROJECT_DIR$/user" />
+            <option value="$PROJECT_DIR$/shared" />
+            <option value="$PROJECT_DIR$/shared/common" />
+            <option value="$PROJECT_DIR$/shared/guide" />
+            <option value="$PROJECT_DIR$/shared/third" />
+            <option value="$PROJECT_DIR$/shared/user" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

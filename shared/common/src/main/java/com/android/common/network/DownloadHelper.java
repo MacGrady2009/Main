@@ -7,7 +7,11 @@ import java.io.File;
 
 public class DownloadHelper {
 
-    ProgressListener  listener;
+    ProgressListener  mListener;
+
+    public DownloadHelper(ProgressListener  listener){
+        mListener = listener;
+    }
 
     /**
      * 文件下载
@@ -16,8 +20,8 @@ public class DownloadHelper {
      * @param fileName
      */
     public void downloadFile(String url, final String destDir, final String fileName){
-        if (null != listener){
-            listener.onStart();
+        if (null != mListener){
+            mListener.onStart();
         }
         RetrofitManager<CommonApi> retrofitManager = RetrofitManager.getInstance();
         retrofitManager.getApiService(CommonApi.class)
@@ -25,20 +29,20 @@ public class DownloadHelper {
             .subscribeOn(Schedulers.io())//请求网络 在调度者的io线程
             .observeOn(Schedulers.io()) //指定线程保存文件
             .observeOn(Schedulers.computation())
-            .map(responseBody-> FileUtil.saveFile(responseBody, destDir, fileName,listener))
+            .map(responseBody-> FileUtil.saveFileWithCallback(responseBody, destDir, fileName,mListener))
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(new BaseObserver<File>() {
                 @Override
                 public void onSuccess(File file, ResponseBean responseBean) {
-                    if (null != listener){
-                        listener.onFinish(true,file,responseBean.getMessage());
+                    if (null != mListener){
+                        mListener.onFinish(true,file,"");
                     }
                 }
 
                 @Override
                 public void onFailed(ResponseBean responseBean) {
-                    if (null != listener){
-                        listener.onFinish(false,null,responseBean.getMessage());
+                    if (null != mListener){
+                        mListener.onFinish(false,null,responseBean.getMessage());
                     }
                 }
             });
@@ -46,11 +50,7 @@ public class DownloadHelper {
 
     }
 
-    public ProgressListener getListener() {
-        return listener;
-    }
+    public void cancelDownLoad(){
 
-    public void setListener(ProgressListener listener) {
-        this.listener = listener;
     }
 }

@@ -16,6 +16,7 @@ public class RetrofitManager<T extends CommonApi> {
     public static final String TAG = "RetrofitManager";
     public static RetrofitManager instance;
     private Retrofit mRetrofit;
+    Retrofit.Builder mBuilder;
     private T mApiService;
     private static HttpLoggingInterceptor mLogInterceptor;
 
@@ -31,45 +32,44 @@ public class RetrofitManager<T extends CommonApi> {
     }
 
     private Retrofit getRetrofit(String baseUrl){
-        mRetrofit = new Retrofit.Builder()
-            .baseUrl(baseUrl)
-            .client(getOkHttpClient())
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-            .build();
+        mRetrofit = getRetrofitBuilder(baseUrl).build();
         return mRetrofit;
     }
 
-    private Retrofit getRetrofit(String baseUrl,Interceptor interceptor){
-        mRetrofit = new Retrofit.Builder()
-            .baseUrl(baseUrl)
-            .client(getOkHttpClient(interceptor))
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-            .build();
+    private Retrofit getRetrofit(String baseUrl,Interceptor... interceptors){
+        mRetrofit = getRetrofitBuilder(baseUrl,interceptors).build();
         return mRetrofit;
     }
 
     private Retrofit getRetrofit(String baseUrl,long connectTimeout
         ,long readTimeout, long writeTimeout){
-        mRetrofit = new Retrofit.Builder()
-            .baseUrl(baseUrl)
-            .client(getOkHttpClient(connectTimeout,readTimeout,writeTimeout))
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-            .build();
+        mRetrofit = getRetrofitBuilder(baseUrl,connectTimeout,readTimeout,writeTimeout).build();
         return mRetrofit;
     }
 
     private Retrofit getRetrofit(String baseUrl,long connectTimeout
-        ,long readTimeout, long writeTimeout, Interceptor interceptor){
-        mRetrofit = new Retrofit.Builder()
-            .baseUrl(baseUrl)
-            .client(getOkHttpClient(connectTimeout,readTimeout,writeTimeout,interceptor))
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-            .build();
+        ,long readTimeout, long writeTimeout, Interceptor... interceptors){
+        mRetrofit = getRetrofitBuilder(baseUrl,connectTimeout,readTimeout,writeTimeout,interceptors).build();
         return mRetrofit;
+    }
+
+    private Retrofit.Builder getRetrofitBuilder(String baseUrl ,Interceptor... interceptors){
+        mBuilder = new Retrofit.Builder()
+            .baseUrl(baseUrl)
+            .client(getOkHttpClient(interceptors))
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.create());
+        return mBuilder;
+    }
+
+    private Retrofit.Builder getRetrofitBuilder(String baseUrl,long connectTimeout
+        ,long readTimeout, long writeTimeout, Interceptor... interceptors){
+        mBuilder = new Retrofit.Builder()
+            .baseUrl(baseUrl)
+            .client(getOkHttpClient(connectTimeout,readTimeout,writeTimeout,interceptors))
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.create());
+        return mBuilder;
     }
 
     public T getApiService(Class<T> apiServiceClass){
@@ -106,8 +106,8 @@ public class RetrofitManager<T extends CommonApi> {
     }
 
     public T getApiService(String baseUrl ,long connectTimeout
-        ,long readTimeout, long writeTimeout,Interceptor interceptor, Class<T> apiServiceClass){
-        getRetrofit(baseUrl,connectTimeout,readTimeout,writeTimeout,interceptor);
+        ,long readTimeout, long writeTimeout, Class<T> apiServiceClass, Interceptor... interceptors){
+        getRetrofit(baseUrl,connectTimeout,readTimeout,writeTimeout,interceptors);
         if (null == mApiService){
             mApiService = mRetrofit.create(apiServiceClass);
         }
@@ -129,9 +129,9 @@ public class RetrofitManager<T extends CommonApi> {
      *
      * @return
      */
-    private static OkHttpClient getOkHttpClient(Interceptor interceptor) {
+    private static OkHttpClient getOkHttpClient(Interceptor... interceptors) {
         return getOkHttpClient(Constant.HTTP_CONNECT_TIMEOUT,Constant.HTTP_READ_TIMEOUT
-            ,Constant.HTTP_WRITE_TIMEOUT,interceptor);
+            ,Constant.HTTP_WRITE_TIMEOUT,interceptors);
     }
 
     /**
@@ -150,7 +150,7 @@ public class RetrofitManager<T extends CommonApi> {
      * @return
      */
     private static OkHttpClient getOkHttpClient(long connectTimeout
-        ,long readTimeout, long writeTimeout, Interceptor interceptor) {
+        ,long readTimeout, long writeTimeout, Interceptor... interceptors) {
         OkHttpClient.Builder builder = new OkHttpClient.Builder()
             .connectTimeout(connectTimeout, TimeUnit.MILLISECONDS)//设置连接超时时间
             .readTimeout(readTimeout, TimeUnit.MILLISECONDS)//设置读取超时时间
@@ -160,8 +160,11 @@ public class RetrofitManager<T extends CommonApi> {
             builder.addInterceptor(logInterceptor());
         }
 
-        if (null != interceptor){
-            builder.addInterceptor(interceptor);
+        //settings more interceptors
+        if (null != interceptors && interceptors.length > 0){
+            for (Interceptor interceptor : interceptors) {
+                builder.addInterceptor(interceptor);
+            }
         }
 
         HttpsUtils.SSLParams sslParams = HttpsUtils.getSslSocketFactory(null, null, null);

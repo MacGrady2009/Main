@@ -55,7 +55,7 @@ public class FileUtil {
                 fos.write(buf, 0, len);
                 totalBytesRead += len != -1 ? len : 0;
                 if (listener != null ){
-                    listener.onProgress(totalBytesRead, totalBytesRead);
+                    listener.onProgress(contentLength, totalBytesRead);
                 }
             }
             fos.flush();

@@ -1,0 +1,3 @@
+apply plugin: 'com.android.library'
+apply from: '../../dependence.gradle'
+apply from: '../../common-config.gradle'

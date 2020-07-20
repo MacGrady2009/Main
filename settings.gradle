@@ -1,6 +1,6 @@
-include ':user'
-include ':guide'
-include ':third'
-include ':common'
+include ':shared:user'
+include ':shared:guide'
+include ':shared:third'
+include ':shared:common'
 include ':app'
 rootProject.name = "Main"
