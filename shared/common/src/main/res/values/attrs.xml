@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="GraphView">
+        <attr name="textSizeVertical" format="dimension" />
+        <attr name="spaceVertical" format="dimension" />
+        <attr name="textSizeHorizontal" format="dimension" />
+        <attr name="spaceHorizontal" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="CollapsingToolbarLayout_Layout">
+        <attr name="layout_collapseMode">
+            <enum name="none" value="0" />
+            <enum name="pin" value="1" />
+            <enum name="parallax" value="2" />
+        </attr>
+        <attr name="layout_collapseParallaxMultiplier" format="float" />
+    </declare-styleable>
+    <declare-styleable name="zxing_finder">
+        <attr name="zxing_possible_result_points" format="color" />
+        <attr name="zxing_result_view" format="color" />
+        <attr name="zxing_viewfinder_laser" format="color" />
+        <attr name="zxing_viewfinder_mask" format="color" />
+    </declare-styleable>
+    <declare-styleable name="zxing_view">
+        <attr name="zxing_scanner_layout" format="reference" />
+    </declare-styleable>
+    <attr name="titleTextColor" format="color" />
+    <attr name="vpiTabPageIndicatorStyle" format="reference" />
+    <!-- 标题栏属性 -->
+    <declare-styleable name="TitleViewAttrs">
+        <attr name="rightImageSrc" format="reference" />
+        <attr name="leftImageSrc" format="reference" />
+        <attr name="centerValue" format="string" />
+        <attr name="rightValue" format="string" />
+    </declare-styleable>
+    <declare-styleable name="wheelview">
+        <attr name="gravity">
+            <enum name="center" value="17" />
+            <enum name="left" value="3" />
+            <enum name="right" value="5" />
+        </attr>
+        <attr name="textColorOut" format="color" />
+        <attr name="textColorCenter" format="color" />
+        <attr name="dividerColor1" format="color" />
+    </declare-styleable>
+
+    <!-- <style name="Widget.TabPageIndicator" parent="Widget">
+         <item name="android:gravity">center</item>
+         <item name="android:background">@drawable/vpi__tab_indicator</item>
+         <item name="android:paddingLeft">22dip</item>
+         <item name="android:paddingRight">22dip</item>
+         <item name="android:paddingTop">12dp</item>
+         <item name="android:paddingBottom">12dp</item>
+         <item name="android:textAppearance">@style/TextAppearance.TabPageIndicator</item>
+         <item name="android:textSize">12sp</item>
+         <item name="android:maxLines">1</item>
+     </style>-->
+
+    <style name="Widget">
+    </style>
+
+    <declare-styleable name="StyledDialogs">
+        <attr name="sdlDialogStyle" format="reference" />
+        <attr name="sdlTitleTextStyle" format="reference" />
+        <attr name="sdlMessageTextStyle" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="SaundProgressBar">
+        <attr name="progressIndicator" format="reference" />
+        <attr name="progress_textSize" format="dimension" />
+        <attr name="progress_textColor" format="reference|color" />
+        <attr name="progress_textStyle">
+            <flag name="normal" value="0" />
+            <flag name="bold" value="1" />
+            <flag name="italic" value="2" />
+        </attr>
+        <attr name="textAlign">
+            <flag name="left" value="0" />
+            <flag name="center" value="1" />
+            <flag name="right" value="2" />
+        </attr>
+        <attr name="offset" format="dimension" />
+    </declare-styleable>
+    <attr name="toolbar_Text_Color" format="color" />
+    <attr name="toolbar_Menu_Text_Color" format="color" />
+    <attr name="textColorFirst" format="color" />
+    <attr name="textColorSecond" format="color" />
+    <attr name="textColorThird" format="color" />
+    <attr name="theme_mode_name" format="string" />
+    <attr name="myTheme" format="integer">
+        <enum name="day" value="0" />
+        <enum name="night" value="1" />
+    </attr>
+    <attr name="item_background" format="color" />
+    <declare-styleable name="TopActionBar">
+        <attr name="topbarTitle" format="string" />
+        <attr name="topbarIsLeftShow" format="boolean" />
+        <attr name="topbarLeftImgRes" format="reference" />
+        <attr name="topbarLeftText" format="string" />
+        <attr name="topbarIsRightShow" format="boolean" />
+        <attr name="topbarRightImgRes" format="reference" />
+        <attr name="topbarRightText" format="string" />
+        <attr name="topbarIsRight2Show" format="boolean" />
+        <attr name="topbarRight2ImgRes" format="reference" />
+        <attr name="topbarRight2Text" format="string" />
+        <attr name="android:background" />
+    </declare-styleable>
+    <declare-styleable name="PopupBar">
+        <attr name="popup_underlineColor" format="color" />
+        <attr name="popup_dividerColor" format="color" />
+        <attr name="popup_textSelectColor" format="color" />
+        <attr name="popup_textUnSelectColor" format="color" />
+        <attr name="popup_menuBackgroundColor" format="color" />
+        <attr name="popup_maskColor" format="color" />
+        <attr name="popup_textSize" format="dimension" />
+        <attr name="popup_tabHeight" format="dimension" />
+        <attr name="popup_SelectIcon" format="reference" />
+        <attr name="popup_unSelectIcon" format="reference" />
+    </declare-styleable>
+    <!-- 固定比例 -->
+    <declare-styleable name="Ratio">
+        <attr name="width_ratio" format="reference|float" />
+        <attr name="height_ratio" format="reference|float" />
+        <attr name="widthStandard" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="CustomViewPager">
+        <attr name="isScrollable" format="boolean" />
+    </declare-styleable>
+    <!--圆弧进度条-->
+    <declare-styleable name="TasksCompletedView">
+        <attr name="radius" format="dimension" />
+        <attr name="strokeWidth" format="dimension" />
+        <attr name="circleColor" format="color" />
+        <attr name="ringColor" format="color" />
+        <attr name="ringBgColor" format="color" />
+        <attr name="isDrawTime" format="boolean" />
+        <attr name="android:textColor" />
+        <attr name="android:textSize" />
+    </declare-styleable>
+    <declare-styleable name="RoundCornerImageView">
+        <attr name="types" format="integer" />
+        <attr name="borderColor" format="color" />
+        <attr name="borderWidth" format="dimension" />
+        <attr name="rectRoundRadius" format="dimension" />
+    </declare-styleable>
+    <!-- 上传图片 -->
+    <declare-styleable name="UploadFileLayout">
+        <attr name="uploadText" format="string|reference" />
+        <attr name="uploadLineNum" format="integer|reference" />
+        <attr name="uploadMaxNum" format="integer|reference" />
+        <attr name="uploadType">
+            <enum name="icon" value="0" />
+            <enum name="text" value="1" />
+        </attr>
+        <attr name="uploadCompress" format="boolean" />
+        <attr name="uploadCompressMin" format="integer" />
+        <attr name="uploadCompressMax" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="UploadFileView2">
+        <attr name="uploadViewText" format="string|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ProgressImageView">
+        <attr name="animResource" format="reference" />
+        <attr name="frameCount" format="integer" />
+        <attr name="animDuration" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="DashboardView">
+        <attr name="db_radius" format="dimension" />
+        <attr name="db_startAngle" format="integer" />
+        <attr name="db_sweepAngle" format="integer" />
+        <attr name="db_arcColor" format="color" />
+        <attr name="db_bgColor" format="color" />
+        <attr name="db_outCircleColor" format="color" />
+        <attr name="db_sideColor" format="color" />
+        <attr name="db_pointerRadius" format="dimension" />
+        <attr name="db_circleRadius" format="dimension" />
+        <attr name="db_progress" format="float" />
+        <attr name="stripeWidth" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="LooperView">
+        <attr name="canLoop" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="FlowLayout">
+        <attr name="fl_gravity">
+            <enum name="left" value="0" />
+            <enum name="center" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="CircleIndicator">
+        <attr name="ci_radius" format="dimension" />
+        <attr name="ci_margin" format="dimension" />
+        <attr name="ci_background" format="color|integer" />
+        <attr name="ci_background_selected" format="color|integer" />
+        <attr name="ci_gravity">
+            <enum name="left" value="0" />
+            <enum name="center" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+        <attr name="ci_mode">
+            <enum name="inside" value="0" />
+            <enum name="outside" value="1" />
+            <enum name="solo" value="2" />
+        </attr>
+        <attr name="bg_mode">
+            <enum name="normal" value="0" />
+            <enum name="bg_side" value="1" />
+            <enum name="selected_side" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="DistributeTextView">
+        <attr name="last_line" format="boolean" />
+        <attr name="align">
+            <enum name="left" value="0"/>
+            <enum name="center" value="1"/>
+            <enum name="right" value="2"/>
+        </attr>
+    </declare-styleable>
+
+</resources>

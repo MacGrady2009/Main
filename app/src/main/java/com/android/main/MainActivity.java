@@ -2,15 +2,14 @@ package com.android.main;
 
 import android.os.Bundle;
 import android.os.Environment;
-import android.util.Log;
 import com.android.common.network.DownloadHelper;
 import com.android.common.network.ProgressListener;
+import com.android.common.utils.LogUtil;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.View;
-
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -54,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onStart() {
-                    Log.d("wb005", "onStart");
+                    LogUtil.d("wb005", "onStart");
                 }
 
                 @Override
@@ -62,13 +61,12 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 @Override
-                public void onFinish(boolean success, Object result, String msg) {
-                    Log.d("wb005", "onFinish success = " + success);
-                    Log.d("wb005", "onFinish msg = " + msg);
+                public void onFinish(boolean success, Object result) {
+                    LogUtil.d("wb005", "onFinish success = " + success);
                 }
             });
-
-            downloadHelper.downloadFile("https://oss.pgyer.com/be0736ca5475edf5e3b00b21cbba80c0.apk?auth_key=1595215097-7e9d2ab7542226b132a49f938eeeaf0d-0-1f1c62dfdfe914918e02508e7bb8531c", Environment.getExternalStorageDirectory().getPath(), "/test.apk");
+            //curl -o aosp-latest.tar https://mirrors.tuna.tsinghua.edu.cn/aosp-monthly
+            downloadHelper.downloadFile("https://mirrors.tuna.tsinghua.edu.cn/aosp-monthly/aosp-latest.tar.md5", Environment.getExternalStorageDirectory().getPath(), "/aosp-latest.tar");
             return true;
         }
 

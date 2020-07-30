@@ -6,5 +6,5 @@ public interface ProgressListener<T> {
 
     void onProgress(long total ,long progress);
 
-    void onFinish(boolean success, T result, String msg);
+    void onFinish(boolean success, T result);
 }

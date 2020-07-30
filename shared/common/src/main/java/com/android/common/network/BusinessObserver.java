@@ -3,18 +3,21 @@ package com.android.common.network;
 import com.android.common.base.BaseEvent;
 import org.greenrobot.eventbus.EventBus;
 
-public abstract class BusinessObserver<T>
-    extends BaseObserver<T> {
+/**
+ * @param <T>
+ */
+public abstract class BusinessObserver<T> extends ResponseObserver<ResponseBean<T>>{
 
     @Override
-    public void onSuccess(T t, ResponseBean responseBean) {
-        if (null != responseBean && responseBean.getCode() == Constant.LOGOUT){
-            EventBus.getDefault().post(new BaseEvent());
-        }else {
-            onSucceed(responseBean);
+    public void onSuccess(ResponseBean<T> responseBean) {
+        if (responseBean.getCode() == Constant.SUCCESS){
+            onSucceed(responseBean.getData());
         }
+        if (responseBean.getCode() == Constant.LOGOUT){
+            EventBus.getDefault().post(new BaseEvent());
+        }
+
     }
 
-    public abstract void onSucceed(ResponseBean responseBean);
-
+    public abstract void onSucceed(T t);
 }

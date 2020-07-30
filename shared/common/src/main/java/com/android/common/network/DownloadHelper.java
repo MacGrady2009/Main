@@ -1,5 +1,6 @@
 package com.android.common.network;
 
+import com.android.common.base.BaseObserver;
 import com.android.common.utils.FileUtil;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.schedulers.Schedulers;
@@ -33,16 +34,16 @@ public class DownloadHelper {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(new BaseObserver<File>() {
                 @Override
-                public void onSuccess(File file, ResponseBean responseBean) {
+                public void onSuccess(File file) {
                     if (null != mListener){
-                        mListener.onFinish(true,file,"");
+                        mListener.onFinish(true,file);
                     }
                 }
 
                 @Override
                 public void onFailed(ResponseBean responseBean) {
                     if (null != mListener){
-                        mListener.onFinish(false,null,responseBean.getMessage());
+                        mListener.onFinish(false,responseBean);
                     }
                 }
             });

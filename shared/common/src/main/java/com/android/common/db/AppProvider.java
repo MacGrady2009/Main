@@ -7,7 +7,6 @@ import android.content.UriMatcher;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.android.common.utils.AppUtils;
@@ -68,7 +67,6 @@ public class AppProvider extends ContentProvider
                 return result;
             case DBConfig.OTHER_TABLE_SUFFIX:
                 long id = ContentUris.parseId(uri); // 取得跟在URI后面的数字
-                Log.i("provider", String.valueOf(id));
                 String where = "id = " + id;
                 if (null != selection && !"".equals(selection.trim()))
                 {

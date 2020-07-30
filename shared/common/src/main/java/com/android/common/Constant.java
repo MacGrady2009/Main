@@ -16,6 +16,28 @@ public class Constant {
     public static final long HTTP_WRITE_TIMEOUT = 15000;
 
     /**
+     * META_DATA SCHEME
+     */
+    public static final String META_DATA_SCHEME_KEY = "scheme";
+
+    /**
+     * META_DATA HOST
+     */
+    public static final String META_DATA_HOST_KEY = "host";
+    /**
+     * META_DATA PORT
+     */
+    public static final String META_DATA_PORT_KEY = "port";
+    /**
+     * META_DATA auth_url
+     */
+    public static final String META_DATA_AUTH_URL_KEY = "auth_url";
+    /**
+     * META_DATA file_provider_auth
+     */
+    public static final String META_DATA_FILE_PROVIDER_AUTH_KEY = "file_provider_auth";
+
+    /**
      * http 请求地址
      */
     public static final String BASE_URL = "https://www.baidu.com";
@@ -27,5 +49,8 @@ public class Constant {
      * apk 解压类型
      */
     public static final String PACKAGE_ARCHIVE_DATA_TYPE = "application/vnd.android.package-archive";
-
+    /**
+     * ad页面广告播放时间
+     */
+    public static final int AD_TIME = 3;
 }

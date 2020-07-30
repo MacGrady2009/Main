@@ -10,13 +10,14 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import com.android.common.Constant;
 
 
 public class Router {
 
-    private String scheme = "ennicome://";
-    private String host = "www.router.com";
-    private String port = "8080";
+    private String scheme = "";
+    private String host = "";
+    private String port = "";
 
     private static Router instance;
     public static final int NEW_TASK = Intent.FLAG_ACTIVITY_NEW_TASK;
@@ -98,13 +99,17 @@ public class Router {
      * @return
      */
     private Intent createIntent(@NonNull Context context, @Nullable Bundle bundle, @NonNull String path, int flag) {
-        port = AppUtils.getAppMetaData(context,"port");
-        if (null != context && (!TextUtils.isEmpty(path)) && (!TextUtils.isEmpty(port))) {
+        scheme = AppUtils.getAppMetaData(context, Constant.META_DATA_SCHEME_KEY);
+        host = AppUtils.getAppMetaData(context, Constant.META_DATA_HOST_KEY);
+        port = AppUtils.getAppMetaData(context, Constant.META_DATA_PORT_KEY);
+
+        if (null != context && (!TextUtils.isEmpty(path)) && (!TextUtils.isEmpty(port)) &&
+            (!TextUtils.isEmpty(scheme)) && (!TextUtils.isEmpty(host))) {
             Intent intent = new Intent();
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.append(scheme).append(host).append(":").append(port).append("/").append(path);
             intent.setData(Uri.parse(stringBuilder.toString()));
-            if(flag>0) {
+            if (flag > 0) {
                 intent.setFlags(flag);
             }
             if(bundle!=null) {

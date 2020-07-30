@@ -2,7 +2,7 @@ package com.android.common.network;
 
 import com.android.common.base.BaseBean;
 
-class ResponseBean<T> extends BaseBean {
+public class ResponseBean<T> extends BaseBean {
     public int code;
     public String message;
     T data;

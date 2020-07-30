@@ -4,4 +4,11 @@
     <string name="audio_call">语音通话</string>
     <string name="video_call">视频通话</string>
     <string name="cancel">取消</string>
+    <string name="loading">加载中</string>
+    <string name="abnormal_no_connection">当前无网络连接</string>
+    <string name="abnormal_check_network">请检查网络后重新尝试</string>
+    <string name="abnormal_try_refresh">尝试刷新</string>
+    <string name="abnormal_reload">加载失败,点击重试</string>
+    <string name="abnormal_no_content">暂无内容</string>
+    <string name="abnormal_page_error">当前访问界面出错</string>
 </resources>

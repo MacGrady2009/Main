@@ -1,23 +1,26 @@
 package com.android.common.network;
 
-import android.util.Log;
 import com.android.common.BuildConfig;
 import com.android.common.Constant;
+import com.android.common.utils.LogUtil;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
+import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
+import org.jetbrains.annotations.NotNull;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RetrofitManager<T extends CommonApi> {
+public class RetrofitManager<S extends CommonApi> {
 
     public static final String TAG = "RetrofitManager";
     public static RetrofitManager instance;
     private Retrofit mRetrofit;
     Retrofit.Builder mBuilder;
-    private T mApiService;
+    private S mApiService;
     private static HttpLoggingInterceptor mLogInterceptor;
 
     public static RetrofitManager getInstance(){
@@ -72,45 +75,35 @@ public class RetrofitManager<T extends CommonApi> {
         return mBuilder;
     }
 
-    public T getApiService(Class<T> apiServiceClass){
+    public S getApiService(Class<S> apiServiceClass){
         getRetrofit();
-        if (null == mApiService){
-            mApiService = mRetrofit.create(apiServiceClass);
-        }
+        mApiService = mRetrofit.create(apiServiceClass);
         return mApiService;
     }
 
-    public T getApiService(String baseUrl ,Class<T> apiServiceClass){
+    public S getApiService(String baseUrl ,Class<S> apiServiceClass){
         getRetrofit(baseUrl);
-        if (null == mApiService){
-            mApiService = mRetrofit.create(apiServiceClass);
-        }
+        mApiService = mRetrofit.create(apiServiceClass);
         return mApiService;
     }
 
-    public T getApiService(String baseUrl , Interceptor interceptor ,Class<T> apiServiceClass){
+    public S getApiService(String baseUrl , Interceptor interceptor ,Class<S> apiServiceClass){
         getRetrofit(baseUrl,interceptor);
-        if (null == mApiService){
-            mApiService = mRetrofit.create(apiServiceClass);
-        }
+        mApiService = mRetrofit.create(apiServiceClass);
         return mApiService;
     }
 
-    public T getApiService(String baseUrl ,long connectTimeout
-        ,long readTimeout, long writeTimeout,Class<T> apiServiceClass){
+    public S getApiService(String baseUrl ,long connectTimeout
+        ,long readTimeout, long writeTimeout,Class<S> apiServiceClass){
         getRetrofit(baseUrl,connectTimeout,readTimeout,writeTimeout);
-        if (null == mApiService){
-            mApiService = mRetrofit.create(apiServiceClass);
-        }
+        mApiService = mRetrofit.create(apiServiceClass);
         return mApiService;
     }
 
-    public T getApiService(String baseUrl ,long connectTimeout
-        ,long readTimeout, long writeTimeout, Class<T> apiServiceClass, Interceptor... interceptors){
+    public S getApiService(String baseUrl ,long connectTimeout
+        ,long readTimeout, long writeTimeout, Class<S> apiServiceClass, Interceptor... interceptors){
         getRetrofit(baseUrl,connectTimeout,readTimeout,writeTimeout,interceptors);
-        if (null == mApiService){
-            mApiService = mRetrofit.create(apiServiceClass);
-        }
+        mApiService = mRetrofit.create(apiServiceClass);
         return mApiService;
     }
 
@@ -141,7 +134,13 @@ public class RetrofitManager<T extends CommonApi> {
      */
     private static OkHttpClient getOkHttpClient(long connectTimeout
         ,long readTimeout, long writeTimeout) {
-        return getOkHttpClient(connectTimeout,readTimeout,writeTimeout, null);
+        return getOkHttpClient(connectTimeout, readTimeout, writeTimeout, new Interceptor() {
+            @NotNull
+            @Override
+            public Response intercept(@NotNull Chain chain) throws IOException {
+                return null;
+            }
+        });
     }
 
     /**
@@ -180,7 +179,7 @@ public class RetrofitManager<T extends CommonApi> {
     private static HttpLoggingInterceptor logInterceptor() {
         if (null == mLogInterceptor){
             mLogInterceptor = new HttpLoggingInterceptor((msg) -> {
-                Log.d(TAG,msg);
+                LogUtil.d(TAG,msg);
             });
             mLogInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         }
