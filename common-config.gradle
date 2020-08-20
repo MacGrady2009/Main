@@ -6,6 +6,10 @@ android {
         targetSdkVersion rootProject.ext.build_versions.target_sdk
         versionCode rootProject.ext.build_versions.code
         versionName rootProject.ext.build_versions.name
+
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a"
+        }
     }
 
     compileOptions {
@@ -13,10 +17,39 @@ android {
         sourceCompatibility 1.8
     }
 
-    buildTypes {
+    //签名
+    signingConfigs {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            storeFile file("./sign.keystore")
+            storePassword "qweasd"
+            keyAlias "sign"
+            keyPassword "qweasd"
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+
+        debug {
+            storeFile file("./sign.keystore")
+            storePassword "qweasd"
+            keyAlias "sign"
+            keyPassword "qweasd"
+            v1SigningEnabled true
+            v2SigningEnabled true
         }
     }
+
+    buildTypes {
+        release {
+            debuggable false
+            minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+
+        debug {
+            debuggable true
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+        }
+    }
+
 }

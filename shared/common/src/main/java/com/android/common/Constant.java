@@ -40,7 +40,7 @@ public class Constant {
     /**
      * http 请求地址
      */
-    public static final String BASE_URL = "https://www.baidu.com";
+    public static final String BASE_URL = "https://e937e576-bb1a-47df-862b-2bfa2fbcacc7.mock.pstmn.io";
     /**
      * file provider auth
      */
@@ -52,5 +52,5 @@ public class Constant {
     /**
      * ad页面广告播放时间
      */
-    public static final int AD_TIME = 3;
+    public static final long AD_TIME = 3;
 }

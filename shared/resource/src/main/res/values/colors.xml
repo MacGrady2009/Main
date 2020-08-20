@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="white">#ffffffff</color>
+    <color name="white">@android:color/white</color>
+    <color name="black">@android:color/black</color>
+    <color name="transparent">@android:color/transparent</color>
     <color name="translucency">#7f000000</color>
     <color name="colorPrimary">#3F51B5</color>
     <color name="color_030303">#030303</color>
@@ -74,7 +76,6 @@
     <color name="color_CFCFCF">#CFCFCF</color>
     <color name="text_color_dark">#333333</color>
     <color name="ripple_light">#1f000000</color>
-    <color name="transparent">#00000000</color>
     <color name="gray005">#dcdcdc</color>
     <color name="text_color_303030">#ff303030</color>
     <color name="loading_text">#FFECECEC</color>
@@ -84,7 +85,4 @@
     <color name="help_bg_gray">#abaebe</color>
     <color name="main_bg_black">#282A3B</color>
     <color name="home_tab_text">#F0EEE4</color>
-    <color name="black">#000000</color>
-
-
 </resources>

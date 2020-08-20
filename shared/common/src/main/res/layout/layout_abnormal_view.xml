@@ -51,7 +51,7 @@
                 android:id="@+id/btn_warn3"
                 android:layout_width="110dp"
                 android:layout_height="36dp"
-                android:layout_marginTop="@dimen/dimen_43"
+                android:layout_marginTop="@dimen/dp_43"
                 android:background="@drawable/selector_nonet"
                 android:gravity="center"
                 android:text="@string/abnormal_try_refresh"

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="todo">TODO</string>
+  <string name="skip">跳过 %1$d</string>
+  <string name="right">©%1$s bonc.com.cn, All Rights Reserved</string>
+</resources>

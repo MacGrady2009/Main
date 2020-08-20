@@ -17,7 +17,12 @@ import android.view.View;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import com.android.common.Constant;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.List;
 
 
@@ -229,4 +234,59 @@ public class AppUtils {
     public static String getSystemVersion() {
         return android.os.Build.VERSION.RELEASE;
     }
+
+    /**
+     * 获取进程号对应的进程名
+     * @param pid 进程号
+     * @return 进程名
+     */
+    public static String getProcessName(int pid) {
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader("/proc/" + pid + "/cmdline"));
+            String processName = reader.readLine();
+            if (!TextUtils.isEmpty(processName)) {
+                processName = processName.trim();
+            }
+            return processName;
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        } finally {
+            try {
+                if (reader != null) {
+                    reader.close();
+                }
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
+        }
+        return null;
+    }
+
+    public static boolean isMainProcess(Context context) {
+        boolean isMainProcess = false;
+        // 获取当前进程名
+        String packageName = context.getPackageName();
+        // 获取当前进程名
+        String processName = getProcessName(android.os.Process.myPid());
+        isMainProcess = processName == null || TextUtils.equals(processName, packageName);
+        return isMainProcess;
+    }
+
+    public static void closeAndroidPDialog() {
+        if (android.os.Build.VERSION.SDK_INT >= 28) {
+            try {
+                Class cls = Class.forName("android.app.ActivityThread");
+                Method declaredMethod = cls.getDeclaredMethod("currentActivityThread");
+                declaredMethod.setAccessible(true);
+                Object activityThread = declaredMethod.invoke(null);
+                Field mHiddenApiWarningShown = cls.getDeclaredField("mHiddenApiWarningShown");
+                mHiddenApiWarningShown.setAccessible(true);
+                mHiddenApiWarningShown.setBoolean(activityThread, true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 }

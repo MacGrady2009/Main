@@ -1,7 +1,8 @@
-package com.android.common.activity;
+package com.android.guide.mvp.view;
 
-import com.android.common.R;
+
 import com.android.common.base.BaseActivity;
+import com.android.guide.R;
 
 /**
  * 引导页面

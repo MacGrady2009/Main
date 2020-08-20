@@ -1,5 +1,6 @@
 package com.android.common.base;
 
+import android.util.Log;
 import com.android.common.base.BaseBean;
 import com.android.common.network.Constant;
 import com.android.common.network.ResponseBean;
@@ -39,7 +40,7 @@ public abstract class BaseObserver<T> implements Observer<T> {
     }
 
     private void unSubscribe(){
-        RxUtils.unDisposable(disposable);
+        RxUtils.dispose(disposable);
     }
 
     public abstract void onSuccess(T t);

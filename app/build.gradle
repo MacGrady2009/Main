@@ -7,4 +7,6 @@ apply from: '../common-config.gradle'
 
 dependencies {
     implementation project(':shared:common')
+    implementation project(':shared:resource')
+    implementation project(':shared:guide')
 }

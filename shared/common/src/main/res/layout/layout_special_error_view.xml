@@ -4,5 +4,5 @@
     android:id="@+id/errorView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="@dimen/common_toolbar_height"
+    android:layout_marginTop="@dimen/dp_48"
     android:visibility="gone" />

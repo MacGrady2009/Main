@@ -1,3 +1,4 @@
+include ':shared:resource'
 include ':shared:user'
 include ':shared:guide'
 include ':shared:third'

@@ -1,4 +1,4 @@
-package com.android.common.mvp.model;
+package com.android.guide.mvp.model;
 
 public class AdBean {
     public JumpTypeBean jumpType;

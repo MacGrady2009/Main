@@ -2,6 +2,7 @@ package com.android.common.network;
 
 import com.android.common.BuildConfig;
 import com.android.common.Constant;
+import com.android.common.base.BaseApi;
 import com.android.common.utils.LogUtil;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -14,7 +15,7 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RetrofitManager<S extends CommonApi> {
+public class RetrofitManager<S extends BaseApi> {
 
     public static final String TAG = "RetrofitManager";
     public static RetrofitManager instance;

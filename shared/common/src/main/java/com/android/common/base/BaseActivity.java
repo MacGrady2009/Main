@@ -57,6 +57,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             }
 
             onInitView();
+            onInitEvent();
         }
     }
 
@@ -161,6 +162,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onInitView() {
     }
 
+    protected void onInitEvent(){
+    }
 
     protected void onLoadData() {
     }

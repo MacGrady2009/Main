@@ -1,7 +1,7 @@
 package com.android.common.network;
 
+import com.android.common.base.BaseApi;
 import com.android.common.base.BaseInterface;
-import com.android.common.mvp.model.AdBean;
 import io.reactivex.rxjava3.core.Observable;
 import java.util.Map;
 import okhttp3.MultipartBody;
@@ -17,7 +17,7 @@ import retrofit2.http.PartMap;
 import retrofit2.http.Streaming;
 import retrofit2.http.Url;
 
-public interface CommonApi extends BaseInterface {
+public interface CommonApi extends BaseApi {
 
     /**
      * 下载文件
@@ -64,12 +64,5 @@ public interface CommonApi extends BaseInterface {
     @Multipart
     @POST("")
     Observable<Response<ResponseBean>> uploadFiles(@PartMap Map<String, RequestBody> params);
-
-    /**
-     * 广告页获取广告
-     */
-    @GET("/api/getAd")
-    Observable<Response<ResponseBean<AdBean>>> getAd();
-
 
 }

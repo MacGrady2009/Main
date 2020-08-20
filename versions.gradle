@@ -1,9 +1,14 @@
+def majorVersion = 1
+def minorVersion = 1
+def patchVersion = 2
+def versionCodeValue = majorVersion * 100 + minorVersion * 10 + patchVersion
+def versionNameValue = majorVersion + '.' + minorVersion + '.' + patchVersion
 def build_versions = [:]
 build_versions.compile_sdk = 29
 build_versions.min_sdk = 26
 build_versions.target_sdk = 29
-build_versions.code = 1
-build_versions.name = "1.0"
+build_versions.code = versionCodeValue
+build_versions.name = versionNameValue
 ext.build_versions = build_versions
 
 
