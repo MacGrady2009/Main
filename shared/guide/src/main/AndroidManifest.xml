@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.android.guide">
   <application>
     <activity android:name="com.android.guide.mvp.view.AdActivity"
-        android:screenOrientation="portrait">
+        android:screenOrientation="portrait"
+        android:theme="@style/Guide.AdTheme">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
@@ -15,7 +16,8 @@
     </activity>
 
     <activity android:name="com.android.guide.mvp.view.GuideActivity"
-        android:screenOrientation="portrait">
+        android:screenOrientation="portrait"
+        android:theme="@style/AppTheme.FullScreen">
     </activity>
   </application>
 </manifest>

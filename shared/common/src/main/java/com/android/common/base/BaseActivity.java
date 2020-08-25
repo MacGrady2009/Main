@@ -126,23 +126,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * 设置全屏显示，隐藏导航栏
-     */
-    protected void fullScreen() {
-        int visibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
-                View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
-                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
-                View.SYSTEM_UI_FLAG_FULLSCREEN;
-
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            visibility = visibility | View.SYSTEM_UI_FLAG_IMMERSIVE;
-        }
-
-        getWindow().getDecorView().setSystemUiVisibility(visibility);
-    }
 
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);

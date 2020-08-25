@@ -1,0 +1,8 @@
+<resources>
+  <!-- Base application theme. -->
+
+  <style name="Guide.AdTheme" parent="AppTheme.FullScreen">
+    <item name="android:windowBackground">@drawable/default_ad</item>
+  </style>
+
+</resources>
