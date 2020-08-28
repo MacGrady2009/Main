@@ -4,6 +4,7 @@ import static com.android.common.Constant.PACKAGE_ARCHIVE_DATA_TYPE;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.Service;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
@@ -287,6 +288,14 @@ public class AppUtils {
                 e.printStackTrace();
             }
         }
+    }
+
+    public static void openSetting(Activity activity) {
+        Intent intent = new Intent("/");
+        ComponentName cm = new ComponentName("com.android.settings", "com.android.settings.WirelessSettings");
+        intent.setComponent(cm);
+        intent.setAction("android.intent.action.VIEW");
+        activity.startActivityForResult(intent, 0);
     }
 
 }

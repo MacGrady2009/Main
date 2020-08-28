@@ -107,7 +107,7 @@ public class Router {
             (!TextUtils.isEmpty(scheme)) && (!TextUtils.isEmpty(host))) {
             Intent intent = new Intent();
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append(scheme).append(host).append(":").append(port).append("/").append(path);
+            stringBuilder.append(scheme).append("://").append(host).append(":").append(port).append(path);
             intent.setData(Uri.parse(stringBuilder.toString()));
             if (flag > 0) {
                 intent.setFlags(flag);

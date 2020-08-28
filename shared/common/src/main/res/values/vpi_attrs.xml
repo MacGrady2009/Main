@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CirclePageIndicator">
+        <!-- Whether or not the indicators should be centered. -->
+        <attr name="indicatorCentered" format="boolean"/>
+        <!-- Color of the filled circle that represents the current page. -->
+        <attr name="fillColor" format="color" />
+        <!-- Color of the filled circles that represents pages. -->
+        <attr name="pageColor" format="color" />
+        <!-- Orientation of the indicator. -->
+        <attr name="android:orientation"/>
+        <!-- Radius of the circles. This is also the spacing between circles. -->
+        <attr name="indicatorRadius" format="dimension" />
+        <!-- Whether or not the selected indicator snaps to the circles. -->
+        <attr name="indicatorSnap" format="boolean" />
+        <!-- 边框颜色. -->
+        <attr name="theBorderColor" format="color" />
+        <!-- 边框宽度. -->
+        <attr name="theBorderWidth" format="dimension"/>
+        <!-- View background -->
+        <attr name="android:background"/>
+        <!-- 选中的和未选中的半径是否相同 -->
+        <attr name="selectDiff" format="boolean" />
+        <!-- 选中的半径. -->
+        <attr name="selectRadius" format="dimension" />
+        <!-- 间隔宽度. -->
+        <attr name="pageSpacing" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CircleLinePageIndicator">
+        <!-- Whether or not the indicators should be centered. -->
+        <attr name="centered" format="boolean"/>
+        <!-- Color of the unselected lines that represent the pages. -->
+        <attr name="unselectedColor" format="color"/>
+        <!-- Color of the selected line that represents the current page. -->
+        <attr name="selectedColor" format="color"/>
+        <!-- Width of each indicator line. -->
+        <attr name="lineWidth" format="dimension" />
+        <!-- Width of the gap between each indicator line. -->
+        <attr name="gapWidth" format="dimension" />
+        <!-- View background -->
+        <attr name="android:background"/>
+
+        <attr name="unSelectRadius" format="dimension" />
+    </declare-styleable>
+</resources>

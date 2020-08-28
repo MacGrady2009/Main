@@ -1,75 +1,22 @@
 package com.android.main;
 
-import android.os.Bundle;
-import android.os.Environment;
-import com.android.common.network.DownloadHelper;
-import com.android.common.network.ProgressListener;
-import com.android.common.utils.LogUtil;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
+import com.android.common.base.BaseActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-            }
-        });
+    protected int onSetRootViewId() {
+        return R.layout.activity_main;
     }
 
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+    protected void onInitView() {
+        super.onInitView();
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            DownloadHelper downloadHelper = new DownloadHelper(new ProgressListener() {
-
-                @Override
-                public void onStart() {
-                    LogUtil.d("wb005", "onStart");
-                }
-
-                @Override
-                public void onProgress(long total, long progress) {
-                }
-
-                @Override
-                public void onFinish(boolean success, Object result) {
-                    LogUtil.d("wb005", "onFinish success = " + success);
-                }
-            });
-            //curl -o aosp-latest.tar https://mirrors.tuna.tsinghua.edu.cn/aosp-monthly
-            downloadHelper.downloadFile("https://mirrors.tuna.tsinghua.edu.cn/aosp-monthly/aosp-latest.tar.md5", Environment.getExternalStorageDirectory().getPath(), "/aosp-latest.tar");
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+    protected void onInitEvent() {
+        super.onInitEvent();
     }
 }

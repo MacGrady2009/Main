@@ -46,6 +46,7 @@
     <dimen name="px_70">70px</dimen>
     <dimen name="px_82">82px</dimen>
     <dimen name="px_92">92px</dimen>
+    <dimen name="px_105">105px</dimen>
     <dimen name="px_150">150px</dimen>
 
 </resources>

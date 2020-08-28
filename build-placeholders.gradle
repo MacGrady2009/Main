@@ -5,7 +5,6 @@ android {
 
         //开发环境
         dev {
-            applicationId applicationId_dev
             manifestPlaceholders = [
                     SCHEME : "mtj4facos8wysW",
                     HOST : "www.bonc.com.cn",
@@ -17,7 +16,6 @@ android {
 
         //测试环境
         beta {
-            applicationId applicationId_test
             manifestPlaceholders = [
                     SCHEME : "mtj4facos8wysW",
                     HOST : "www.bonc.com.cn",
@@ -28,7 +26,6 @@ android {
         }
         //预生产环境
         pre {
-            applicationId applicationId_pre
             manifestPlaceholders = [
                     SCHEME : "mtj4facos8wysW",
                     HOST : "www.bonc.com.cn",
@@ -39,7 +36,6 @@ android {
         }
         //生产环境
         pro {
-            applicationId applicationId_pro
             manifestPlaceholders = [
                     SCHEME : "mtj4facos8wysW",
                     HOST : "www.bonc.com.cn",

@@ -85,4 +85,5 @@
     <color name="help_bg_gray">#abaebe</color>
     <color name="main_bg_black">#282A3B</color>
     <color name="home_tab_text">#F0EEE4</color>
+    <color name="bg_eaeaea">#EAEAEA</color>
 </resources>

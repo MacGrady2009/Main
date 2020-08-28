@@ -1,6 +1,5 @@
 package com.android.common.base;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,6 +10,7 @@ import android.widget.FrameLayout;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.android.common.R;
+import com.android.common.utils.ActivityStack;
 import com.android.common.utils.EventBusUtil;
 import com.android.common.view.ExceptionView;
 import com.android.common.view.TopActionBar;
@@ -31,6 +31,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActivityStack.getInstance().add(this);
         this.originIntent = this.getIntent();
 
         int rootViewId = this.onSetRootViewId();
@@ -56,6 +57,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                 initErrorView();
             }
 
+            onFindView();
             onInitView();
             onInitEvent();
         }
@@ -142,6 +144,9 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected abstract int onSetRootViewId();
 
+    protected void onFindView() {
+    }
+
     protected void onInitView() {
     }
 
@@ -175,6 +180,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (this.progressDlg != null && this.progressDlg.isShowing()) {
             this.progressDlg.dismiss();
         }
+        ActivityStack.getInstance().remove(this);
     }
 
 

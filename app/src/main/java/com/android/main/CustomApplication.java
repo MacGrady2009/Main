@@ -3,6 +3,7 @@ package com.android.main;
 import android.app.Application;
 import android.content.res.Configuration;
 import androidx.annotation.NonNull;
+import com.android.common.utils.ActivityStack;
 import com.android.common.utils.AppUtils;
 
 public class CustomApplication extends Application {
@@ -12,6 +13,7 @@ public class CustomApplication extends Application {
         //app启动会有多个进程
         if (AppUtils.isMainProcess(this)) {
             AppUtils.closeAndroidPDialog();
+            registerActivityLifecycleCallbacks(ActivityLifecycle.getInstance());
         }
     }
 
@@ -34,5 +36,7 @@ public class CustomApplication extends Application {
     @Override
     public void onTerminate() {
         super.onTerminate();
+        unregisterActivityLifecycleCallbacks(ActivityLifecycle.getInstance());
+        ActivityStack.getInstance().clear();
     }
 }
