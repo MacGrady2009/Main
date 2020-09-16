@@ -12,4 +12,5 @@ dependencies {
     implementation project(':shared:common')
     implementation project(':shared:resource')
     implementation project(':shared:guide')
+    implementation project(':shared:third')
 }

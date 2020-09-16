@@ -13,7 +13,8 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintWidth_percent="0.33">
+      app:layout_constraintWidth_percent="0.33"
+      android:tag="0">
 
     <ImageView
         android:id="@+id/iv_chat"
@@ -44,7 +45,8 @@
       app:layout_constraintStart_toEndOf="@id/rl_chat"
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintWidth_percent="0.34">
+      app:layout_constraintWidth_percent="0.34"
+      android:tag="1">
 
     <ImageView
         android:id="@+id/iv_contact"
@@ -64,7 +66,8 @@
       app:layout_constraintStart_toEndOf="@id/rl_contact"
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintWidth_percent="0.33">
+      app:layout_constraintWidth_percent="0.33"
+      android:tag="2">
 
     <ImageView
         android:id="@+id/iv_mine"
