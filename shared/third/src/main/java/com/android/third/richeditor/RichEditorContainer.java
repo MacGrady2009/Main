@@ -65,17 +65,30 @@ public class RichEditorContainer {
 
         findViewById(R.id.action_redo).setOnClickListener(v -> mEditor.redo());
 
-        findViewById(R.id.action_bold).setOnClickListener(v -> mEditor.setBold());
+        findViewById(R.id.action_bold).setOnClickListener(v -> {
+                mEditor.setBold();
+                v.setSelected(!v.isSelected());
+            }
+        );
 
-        findViewById(R.id.action_italic).setOnClickListener(v -> mEditor.setItalic());
+        findViewById(R.id.action_italic).setOnClickListener(v -> {
+            mEditor.setItalic();
+            v.setSelected(!v.isSelected());
+        });
 
         findViewById(R.id.action_subscript).setOnClickListener(v -> mEditor.setSubscript());
 
         findViewById(R.id.action_superscript).setOnClickListener(v -> mEditor.setSuperscript());
 
-        findViewById(R.id.action_strikethrough).setOnClickListener(v -> mEditor.setStrikeThrough());
+        findViewById(R.id.action_strikethrough).setOnClickListener(v -> {
+            mEditor.setStrikeThrough();
+            v.setSelected(!v.isSelected());
+        });
 
-        findViewById(R.id.action_underline).setOnClickListener(v -> mEditor.setUnderline());
+        findViewById(R.id.action_underline).setOnClickListener(v -> {
+            mEditor.setUnderline();
+            v.setSelected(!v.isSelected());
+        });
 
         findViewById(R.id.action_heading1).setOnClickListener(v -> mEditor.setHeading(1));
 

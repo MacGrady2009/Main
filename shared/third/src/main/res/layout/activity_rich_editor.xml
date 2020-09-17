@@ -82,7 +82,7 @@
           android:layout_height="40dp"
           android:background="@null"
           android:contentDescription="@null"
-          android:src="@drawable/strikethrough" />
+          android:src="@drawable/selector_editor_bar_strikethrough" />
 
       <ImageButton
           android:id="@+id/action_underline"
