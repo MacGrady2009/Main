@@ -1,3 +1,6 @@
 apply plugin: 'com.android.library'
 apply from: '../../common-config.gradle'
 apply from: '../../dependence.gradle'
+dependencies {
+    implementation project(':shared:common')
+}
