@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.android.common.R;
+import com.android.common.utils.FragmentStack;
 import com.android.common.view.TopActionBar;
 import com.android.common.widget.CustomLoadingDialog;
 import org.greenrobot.eventbus.EventBus;
@@ -34,6 +35,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FragmentStack.getInstance().add(this);
         if (savedInstanceState != null) {
             this.isRestore = true;
         }
@@ -162,6 +164,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        FragmentStack.getInstance().remove(this);
     }
 
     protected void onFindView() {
