@@ -6,7 +6,7 @@
     android:background="@mipmap/bottom_navigation_bar_bg">
 
   <RelativeLayout
-      android:id="@+id/rl_chat"
+      android:id="@+id/rl_first"
       android:layout_width="@dimen/dp_0"
       android:layout_height="wrap_content"
       android:orientation="vertical"
@@ -17,18 +17,18 @@
       android:tag="0">
 
     <ImageView
-        android:id="@+id/iv_chat"
+        android:id="@+id/iv_first"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/selector_bottom_bar_chat"
+        android:src="@drawable/selector_bottom_bar_first"
         android:layout_centerHorizontal="true"
         android:contentDescription="@string/todo" />
 
     <TextView
-        android:id="@+id/tv_chat"
+        android:id="@+id/tv_first"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/iv_chat"
+        android:layout_toEndOf="@id/iv_first"
         android:textColor="@color/white"
         android:background="@drawable/shape_big_red_oval"
         android:layout_marginTop="@dimen/px_3"
@@ -38,50 +38,50 @@
   </RelativeLayout>
 
   <RelativeLayout
-      android:id="@+id/rl_contact"
+      android:id="@+id/rl_second"
       android:layout_width="@dimen/dp_0"
       android:layout_height="wrap_content"
       android:orientation="vertical"
-      app:layout_constraintStart_toEndOf="@id/rl_chat"
+      app:layout_constraintStart_toEndOf="@id/rl_first"
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintWidth_percent="0.34"
       android:tag="1">
 
     <ImageView
-        android:id="@+id/iv_contact"
+        android:id="@+id/iv_second"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/selector_bottom_bar_contact"
+        android:src="@drawable/selector_bottom_bar_second"
         android:layout_centerHorizontal="true"
         android:contentDescription="@string/todo" />
 
   </RelativeLayout>
 
   <RelativeLayout
-      android:id="@+id/rl_mine"
+      android:id="@+id/rl_third"
       android:layout_width="@dimen/dp_0"
       android:layout_height="wrap_content"
       android:orientation="vertical"
-      app:layout_constraintStart_toEndOf="@id/rl_contact"
+      app:layout_constraintStart_toEndOf="@id/rl_second"
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintWidth_percent="0.33"
       android:tag="2">
 
     <ImageView
-        android:id="@+id/iv_mine"
+        android:id="@+id/iv_third"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/selector_bottom_bar_mine"
+        android:src="@drawable/selector_bottom_bar_third"
         android:layout_centerHorizontal="true"
         android:contentDescription="@string/todo" />
 
     <TextView
-        android:id="@+id/tv_mine"
+        android:id="@+id/tv_third"
         android:layout_width="@dimen/dp_10"
         android:layout_height="@dimen/dp_10"
-        android:layout_toEndOf="@id/iv_mine"
+        android:layout_toEndOf="@id/iv_third"
         android:layout_marginTop="@dimen/px_3"
         android:layout_marginLeft="-20dp"
         android:textColor="@color/white"

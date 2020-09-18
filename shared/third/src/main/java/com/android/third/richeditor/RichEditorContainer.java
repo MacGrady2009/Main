@@ -13,12 +13,13 @@ public class RichEditorContainer {
     private Activity mActivity;
     private RichEditor mEditor;
     private View mRootView;
-    Listener listener;
+    Listener mListener;
     HorizontalScrollView mHsEditorBar;
 
-    public  RichEditorContainer(View rootView, Activity activity){
+    public  RichEditorContainer(View rootView, Activity activity,Listener listener){
         mRootView = rootView;
         mActivity = activity;
+        mListener = listener;
         initView();
     }
 
@@ -56,8 +57,8 @@ public class RichEditorContainer {
         //mEditor.setInputEnabled(false);
 
         mEditor.setOnTextChangeListener(htmlText -> {
-            if (null != listener){
-                listener.onRichEditorChange(htmlText);
+            if (null != mListener){
+                mListener.onRichEditorChange(htmlText);
             }
         });
 
@@ -142,9 +143,4 @@ public class RichEditorContainer {
         findViewById(R.id.action_insert_link).setOnClickListener(v -> mEditor.insertLink("https://github.com/wasabeef", "wasabeef"));
         findViewById(R.id.action_insert_checkbox).setOnClickListener(v -> mEditor.insertTodo());
     }
-
-    public void setListener(Listener listener) {
-        this.listener = listener;
-    }
-
 }

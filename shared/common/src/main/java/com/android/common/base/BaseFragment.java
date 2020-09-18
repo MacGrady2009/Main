@@ -65,26 +65,13 @@ public abstract class BaseFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         onPageChange();
-        if (!this.restoreStateFromArguments()) {
-            this.onLoadData();
-        }
-    }
-
-    protected boolean needButterKnife() {
-        return true;
+        this.onLoadData();
     }
 
     protected boolean needEventBus() {
         return false;
     }
 
-    /**
-     * 当前Fragment是否在viewpager中
-     * @return true or false
-     */
-    protected boolean isInViewPager() {
-        return false;
-    }
 
     public void onBackPressed() {}
 
@@ -101,12 +88,9 @@ public abstract class BaseFragment extends Fragment {
         if (topActionBar != null) {
             initTopActionBar();
         }
-        this.onInitView();
-        this.onInitListener();
-        this.isViewCreated = true;
-        if (!isInViewPager()){
-            isShow = true;
-        }
+        onFindView();
+        onInitView();
+        onInitEvent();
     }
 
     public void initTopActionBar() {
@@ -180,27 +164,13 @@ public abstract class BaseFragment extends Fragment {
         super.onDestroy();
     }
 
-
-    private boolean restoreStateFromArguments() {
-        Bundle savedState = this.args.getBundle("internalSavedViewState" + this.getClass().getSimpleName());
-        if (savedState != null) {
-            this.onRestoreState(savedState);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    protected void onSaveState(Bundle savedInstanceState) {
-    }
-
-    protected void onRestoreState(Bundle savedInstanceState) {
+    protected void onFindView() {
     }
 
     protected void onInitView() {
     }
 
-    protected void onInitListener() {
+    protected void onInitEvent(){
     }
 
     protected void onLoadData() {
@@ -258,29 +228,11 @@ public abstract class BaseFragment extends Fragment {
         }
     }
 
-    /**
-     * 网络连接上的调用方法，可一自己根据需要去重写
-     * @param isAvailable 是否可用
-     * @param isWifi      是否wifi
-     */
-    public void onNetWorkConnectChanged(boolean isAvailable, boolean isWifi) {
-    }
 
     @Override
     public void onHiddenChanged(boolean hidden) {
-        if (!isInViewPager()) {
-            isShow = !hidden;
-            onPageChange();
-        }
-    }
-
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        if (isInViewPager()) {
-            isShow = isVisibleToUser;
-            onPageChange();
-        }
+        isShow = !hidden;
+        onPageChange();
     }
 
     protected void onPageChange() {
@@ -293,15 +245,9 @@ public abstract class BaseFragment extends Fragment {
         }
     }
 
-    /**
-     * 页面显示，需要设置{@link #isInViewPager()}
-     */
     protected void onPageStart() {
     }
 
-    /**
-     * 页面隐藏，需要设置{@link #isInViewPager()}
-     */
     protected void onPageEnd() {
     }
 

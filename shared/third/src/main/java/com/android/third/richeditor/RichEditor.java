@@ -100,11 +100,14 @@ public class RichEditor extends WebView {
     float editorHeight = a.getDimension(R.styleable.RichEditor_height,200);
     float fontSize = a.getDimension(R.styleable.RichEditor_fontSize,20);
     int fontColor = a.getColor(R.styleable.RichEditor_fontColor,0xff000000);
+    int bgColor = a.getColor(R.styleable.RichEditor_bgColor,0xff000000);
     String placeholder = a.getString(R.styleable.RichEditor_placeholder);
+    Drawable drawable = a.getDrawable(R.styleable.RichEditor_bgRes);
     setEditorHeight(editorHeight);
     setEditorFontSize(fontSize);
     setEditorFontColor(fontColor);
     setPlaceholder(placeholder);
+    setBackground(drawable);
     setVerticalScrollBarEnabled(false);
     setHorizontalScrollBarEnabled(false);
     getSettings().setJavaScriptEnabled(true);

@@ -1,10 +1,11 @@
-package com.android.main;
+package com.android.main.mvp.view.home;
 
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.android.common.base.BaseActivity;
+import com.android.main.R;
 
 public class MainActivity extends BaseActivity
     implements View.OnClickListener {
@@ -33,16 +34,16 @@ public class MainActivity extends BaseActivity
     protected void onInitView() {
         super.onInitView();
         //chat
-        mRlChat = findViewById(R.id.rl_chat);
-        mIvChat = findViewById(R.id.iv_chat);
-        mTvChat = findViewById(R.id.tv_chat);
+        mRlChat = findViewById(R.id.rl_first);
+        mIvChat = findViewById(R.id.iv_first);
+        mTvChat = findViewById(R.id.tv_first);
         //contact
-        mRlContact = findViewById(R.id.rl_contact);
-        mIvContact = findViewById(R.id.iv_contact);
+        mRlContact = findViewById(R.id.rl_second);
+        mIvContact = findViewById(R.id.iv_second);
         //mine
-        mRlMine = findViewById(R.id.rl_mine);
-        mIvMine = findViewById(R.id.iv_mine);
-        mTvMine = findViewById(R.id.tv_mine);
+        mRlMine = findViewById(R.id.rl_third);
+        mIvMine = findViewById(R.id.iv_third);
+        mTvMine = findViewById(R.id.tv_third);
         setUpIvContainer();
     }
 
@@ -77,13 +78,13 @@ public class MainActivity extends BaseActivity
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.rl_chat:
+            case R.id.rl_first:
                 setSelected(0);
                 break;
-            case R.id.rl_contact:
+            case R.id.rl_second:
                 setSelected(1);
                 break;
-            case R.id.rl_mine:
+            case R.id.rl_third:
                 setSelected(2);
                 break;
         }

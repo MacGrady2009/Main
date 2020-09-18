@@ -19,6 +19,8 @@
         <attr name="fontSize" format="dimension" />
         <attr name="fontColor" format="reference|color" />
         <attr name="placeholder" format="string" />
+        <attr name="bgColor" format="reference|color" />
+        <attr name="bgRes" format="reference|color" />
     </declare-styleable>
 
 </resources>
