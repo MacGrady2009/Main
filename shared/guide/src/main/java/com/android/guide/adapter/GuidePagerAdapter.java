@@ -12,8 +12,8 @@ import com.android.guide.R;
 
 
 public class GuidePagerAdapter extends PagerAdapter {
-    private int[] imageResIds = new int[]{R.drawable.ic_guide_page0, R.drawable.ic_guide_page1,
-            R.drawable.ic_guide_page2, R.drawable.ic_guide_page3, R.drawable.ic_guide_page4};
+    private int[] imageResIds = new int[]{R.drawable.guide_page0, R.drawable.guide_page1,
+            R.drawable.guide_page2, R.drawable.guide_page3, R.drawable.guide_page4};
     private Context context;
 
     public GuidePagerAdapter(Context context) {

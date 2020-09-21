@@ -5,47 +5,40 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.android.common.R;
+import com.android.common.network.ResponseBean;
 import com.android.common.utils.FragmentStack;
 import com.android.common.view.TopActionBar;
 import com.android.common.widget.CustomLoadingDialog;
 import org.greenrobot.eventbus.EventBus;
 
 
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment
+    implements BaseView{
     protected Activity mActivity;
     protected View rootView;
     protected LayoutInflater mLayoutInflater;
     protected Bundle args;
     protected boolean isViewCreated = false;
     protected TopActionBar topActionBar;
-    protected boolean isRestore = false;
-    //public static int REQUEST_FRAGMENT_RESULT = 4772;
     protected CustomLoadingDialog progressDlg;
-    protected boolean isShow = false; // 当前Fragment是否显示
-    private boolean firstCreate = true; // 当前Fragment是否创建到显示
 
     public BaseFragment() {
     }
-
-    public abstract int onSetRootViewId();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FragmentStack.getInstance().add(this);
-        if (savedInstanceState != null) {
-            this.isRestore = true;
-        }
 
         this.mActivity = this.getActivity();
         this.args = this.getArguments();
         if (this.args == null) {
             this.args = new Bundle();
         }
-        firstCreate = true;
     }
 
     @Override
@@ -66,7 +59,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        onPageChange();
+        onPageChange(false);
         this.onLoadData();
     }
 
@@ -130,26 +123,18 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        onPageStart();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        if (firstCreate) {
-            firstCreate = false;
-        } else {
-            if (isShow) {
-                onPageStart();
-            }
-        }
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        if (isShow) {
-            onPageEnd();
-        }
+        onPageEnd();
     }
 
     @Override
@@ -166,6 +151,8 @@ public abstract class BaseFragment extends Fragment {
         super.onDestroy();
         FragmentStack.getInstance().remove(this);
     }
+
+    public abstract int onSetRootViewId();
 
     protected void onFindView() {
     }
@@ -234,13 +221,12 @@ public abstract class BaseFragment extends Fragment {
 
     @Override
     public void onHiddenChanged(boolean hidden) {
-        isShow = !hidden;
-        onPageChange();
+        onPageChange(hidden);
     }
 
-    protected void onPageChange() {
+    protected void onPageChange(boolean hidden) {
         if (isViewCreated) {
-            if (isShow) {
+            if (hidden) {
                 onPageStart();
             } else {
                 onPageEnd();
@@ -254,4 +240,8 @@ public abstract class BaseFragment extends Fragment {
     protected void onPageEnd() {
     }
 
+    @Override
+    public void onFailed(ResponseBean responseBean) {
+        Toast.makeText(getContext(),responseBean.getMessage()+"["+ responseBean.getCode() +"]",Toast.LENGTH_LONG).show();
+    }
 }

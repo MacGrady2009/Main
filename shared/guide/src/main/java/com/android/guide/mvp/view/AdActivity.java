@@ -3,9 +3,11 @@ package com.android.guide.mvp.view;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.android.common.Constant;
+import com.android.common.constant.Constant;
 import com.android.common.base.BaseActivity;
+import com.android.common.constant.ModuleConstant;
 import com.android.common.utils.Router;
+import com.android.common.utils.SpUtils;
 import com.android.guide.BuildConfig;
 import com.android.guide.R;
 import com.android.guide.mvp.model.AdBean;
@@ -58,8 +60,7 @@ public class AdActivity extends BaseActivity implements AdView
         String skip = String.format(getString(R.string.skip), second);
         mTvAdTime.setText(skip);
         if (second <= 1){
-            Router.getInstance().startActivity(this,null, BuildConfig.GUIDE);
-            finish();
+            skip();
         }
     }
 
@@ -70,10 +71,22 @@ public class AdActivity extends BaseActivity implements AdView
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.img_ad){
+        if (view.getId() == R.id.img_ad) {
 
-        }else if (view.getId() == R.id.tv_ad_time){
+        } else if (view.getId() == R.id.tv_ad_time) {
+            skip();
+        }
+    }
+
+    private void skip(){
+        if (!SpUtils.getBoolean(this, ModuleConstant.IS_GUIDED,false)){
             Router.getInstance().startActivity(this,null, BuildConfig.GUIDE);
+            finish();
+        }else if (!SpUtils.getBoolean(this,ModuleConstant.IS_LOGIN,false)){
+            Router.getInstance().startActivity(this,null, BuildConfig.LOGIN);
+            finish();
+        }else {
+            Router.getInstance().startActivity(this,null, BuildConfig.MAIN);
             finish();
         }
     }

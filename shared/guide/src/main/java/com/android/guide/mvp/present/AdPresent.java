@@ -32,7 +32,7 @@ public class AdPresent extends BasePresentImpl<AdView,GuideApi> {
 
                 @Override
                 public void onFailed(ResponseBean responseBean) {
-
+                    mBaseView.onFailed(responseBean);
                 }
             });
     }
@@ -50,6 +50,7 @@ public class AdPresent extends BasePresentImpl<AdView,GuideApi> {
 
                 @Override
                 public void onFailed(ResponseBean responseBean) {
+                    mBaseView.onFailed(responseBean);
                 }
             });
     }

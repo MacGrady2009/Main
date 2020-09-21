@@ -1,6 +1,6 @@
 package com.android.common.utils;
 
-import static com.android.common.Constant.PACKAGE_ARCHIVE_DATA_TYPE;
+import static com.android.common.constant.Constant.PACKAGE_ARCHIVE_DATA_TYPE;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.Service;
@@ -17,7 +17,7 @@ import android.text.TextUtils;
 import android.view.View;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
-import com.android.common.Constant;
+import com.android.common.constant.Constant;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;

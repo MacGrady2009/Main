@@ -1,15 +1,16 @@
 package com.android.common.base;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.android.common.R;
+import com.android.common.network.ResponseBean;
 import com.android.common.utils.ActivityStack;
 import com.android.common.utils.EventBusUtil;
 import com.android.common.view.ExceptionView;
@@ -17,7 +18,7 @@ import com.android.common.view.TopActionBar;
 import com.android.common.widget.CustomLoadingDialog;
 
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity implements BaseView{
 
     protected LayoutInflater mLayoutInflater;
     protected View rootView;
@@ -240,5 +241,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public boolean isProgressShown() {
         return (isSupportProgress && progressDlg != null) && progressDlg.isShowing();
+    }
+
+    @Override
+    public void onFailed(ResponseBean responseBean) {
+        Toast.makeText(this,responseBean.getMessage()+"["+ responseBean.getCode() +"]",Toast.LENGTH_LONG).show();
     }
 }

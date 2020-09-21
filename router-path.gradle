@@ -1,16 +1,19 @@
 def advert = "/Advert"
 def guide = "/Guide"
 def main = "/Main"
+def login = "/Login"
 
 android {
     defaultConfig {
         buildConfigField 'String', 'ADVERT',"\"${advert}\""
         buildConfigField 'String', 'GUIDE',"\"${guide}\""
         buildConfigField 'String', 'MAIN',"\"${main}\""
+        buildConfigField 'String', 'LOGIN',"\"${login}\""
         manifestPlaceholders = [
                 ADVERT : "${advert}",
                 GUIDE : "${guide}",
-                MAIN : "${main}"
+                MAIN : "${main}",
+                LOGIN : "${login}",
         ]
     }
 }

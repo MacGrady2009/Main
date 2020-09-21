@@ -1,4 +1,19 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.android.user">
-
-  /
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.android.user">
+  <application>
+    <activity android:name=".mvp.view.LoginActivity"
+        android:screenOrientation="portrait"
+        android:theme="@style/AppTheme.FullScreen">
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <data
+            android:scheme="${SCHEME}"
+            android:host="${HOST}"
+            android:port="${PORT}"
+            android:path="${LOGIN}"
+            />
+      </intent-filter>
+    </activity>
+  </application>
 </manifest>

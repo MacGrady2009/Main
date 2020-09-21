@@ -7,7 +7,9 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
 import android.widget.TextView;
 import com.android.common.base.BaseActivity;
+import com.android.common.constant.ModuleConstant;
 import com.android.common.utils.Router;
+import com.android.common.utils.SpUtils;
 import com.android.common.view.CustomViewPager;
 import com.android.common.view.pagerindicator.CircleLinePageIndicator;
 import com.android.guide.BuildConfig;
@@ -64,8 +66,8 @@ public class GuideActivity extends BaseActivity implements
 
     @Override
     public void onClick(View view) {
-        Router.getInstance().startActivity(this,null, BuildConfig.MAIN);
-        finish();
+        SpUtils.putBoolean(this, ModuleConstant.IS_GUIDED,true);
+        skip();
     }
 
     /**
@@ -98,5 +100,14 @@ public class GuideActivity extends BaseActivity implements
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         return false;
+    }
+
+    private void skip(){
+        if (!SpUtils.getBoolean(this,ModuleConstant.IS_LOGIN,false)){
+            Router.getInstance().startActivity(this,null, BuildConfig.LOGIN);
+        }else {
+            Router.getInstance().startActivity(this,null, BuildConfig.MAIN);
+        }
+        finish();
     }
 }

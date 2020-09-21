@@ -1,7 +1,7 @@
 package com.android.common.db;
 
 import android.content.Context;
-import com.android.common.Constant;
+import com.android.common.constant.Constant;
 import com.android.common.utils.AppUtils;
 
 public class DBConfig {

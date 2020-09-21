@@ -34,6 +34,7 @@ public abstract class BaseObserver<T> implements Observer<T> {
         unSubscribe();
     }
 
+
     @Override
     public void onComplete() {
         unSubscribe();

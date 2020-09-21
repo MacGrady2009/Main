@@ -1,7 +1,7 @@
 package com.android.common.network;
 
 import com.android.common.BuildConfig;
-import com.android.common.Constant;
+import com.android.common.constant.Constant;
 import com.android.common.base.BaseApi;
 import com.android.common.utils.LogUtil;
 import java.io.IOException;

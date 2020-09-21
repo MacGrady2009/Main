@@ -33,7 +33,7 @@
       android:layout_alignParentBottom="true"
       android:layout_centerHorizontal="true"
       android:layout_marginBottom="71dp"
-      android:background="@drawable/btn_bg_main_yellow_circle"
+      android:background="@drawable/selector_yellow_round_angle"
       android:gravity="center"
       android:text="@string/start"
       android:textColor="@color/text_color_303030"
