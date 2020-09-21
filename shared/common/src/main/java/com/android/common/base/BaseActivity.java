@@ -60,6 +60,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             onFindView();
             onInitView();
             onInitEvent();
+            onInitFragment();
         }
     }
 
@@ -151,6 +152,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected void onInitEvent(){
+    }
+
+    protected void onInitFragment(){
     }
 
     protected void onLoadData() {
