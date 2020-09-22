@@ -4,7 +4,7 @@ import com.android.common.base.BasePresentImpl;
 import com.android.common.network.BusinessObserver;
 import com.android.common.network.ResponseBean;
 import com.android.user.mvp.model.LoginApi;
-import com.android.user.mvp.model.LoginBean;
+import com.android.user.mvp.model.LoginRes;
 import com.android.user.mvp.view.LoginView;
 
 public class LoginPresent extends BasePresentImpl<LoginView, LoginApi> {
@@ -19,10 +19,10 @@ public class LoginPresent extends BasePresentImpl<LoginView, LoginApi> {
      */
     public void login(){
         compose(getService(LoginApi.class).login())
-            .subscribe(new BusinessObserver<LoginBean>() {
+            .subscribe(new BusinessObserver<LoginRes>() {
 
                 @Override
-                public void onSucceed(LoginBean userBean) {
+                public void onSucceed(LoginRes userBean) {
                     mBaseView.onLogin(userBean);
                 }
 

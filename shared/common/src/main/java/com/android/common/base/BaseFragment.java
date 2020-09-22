@@ -12,7 +12,8 @@ import com.android.common.R;
 import com.android.common.network.ResponseBean;
 import com.android.common.utils.FragmentStack;
 import com.android.common.view.TopActionBar;
-import com.android.common.widget.CustomLoadingDialog;
+import com.android.common.widget.AllDialog;
+import com.android.common.widget.LoadingDialog;
 import org.greenrobot.eventbus.EventBus;
 
 
@@ -24,7 +25,7 @@ public abstract class BaseFragment extends Fragment
     protected Bundle args;
     protected boolean isViewCreated = false;
     protected TopActionBar topActionBar;
-    protected CustomLoadingDialog progressDlg;
+    protected AllDialog loadingDlg;
 
     public BaseFragment() {
     }
@@ -149,6 +150,7 @@ public abstract class BaseFragment extends Fragment
     @Override
     public void onDestroy() {
         super.onDestroy();
+        hideProgress();
         FragmentStack.getInstance().remove(this);
     }
 
@@ -166,55 +168,26 @@ public abstract class BaseFragment extends Fragment
     protected void onLoadData() {
     }
 
+
     /**
      * 显示加载框
      */
     public void showProgress() {
-        showProgress(null, true);
-    }
-
-    /**
-     * 显示加载框
-     * @param cancelable 是否可以取消
-     */
-    public void showProgress(boolean cancelable) {
-        showProgress(null, cancelable);
-    }
-
-    /**
-     * 显示加载框
-     * @param msg 显示加载框内容
-     */
-    public void showProgress(String msg) {
-        showProgress(msg, true);
-    }
-
-    /**
-     * 显示加载框
-     * @param msg        显示加载框内容
-     * @param cancelable 是否可以取消
-     */
-    public void showProgress(String msg, boolean cancelable) {
         if (!isDetached()) {
-            if (progressDlg == null) {
-                progressDlg = new CustomLoadingDialog(mActivity);
+            if (loadingDlg == null) {
+                loadingDlg = LoadingDialog.create(getActivity());
             }
-            progressDlg.setCancelable(cancelable);
-            if (isProgressShown()) {
-                progressDlg.setMsg(msg);
-            } else {
-                progressDlg.show(msg);
-            }
+            loadingDlg.show();
         }
     }
 
     public boolean isProgressShown() {
-        return progressDlg != null && progressDlg.isShowing();
+        return loadingDlg != null && loadingDlg.isShowing();
     }
 
     public void hideProgress() {
         if (isProgressShown()) {
-            progressDlg.dismiss();
+            loadingDlg.dismiss();
         }
     }
 

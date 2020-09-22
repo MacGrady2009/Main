@@ -1,6 +1,6 @@
 package com.android.user.mvp.model;
 
-public class LoginBean {
+public class LoginRes {
 
     /**
      * nickName : 爱的天使

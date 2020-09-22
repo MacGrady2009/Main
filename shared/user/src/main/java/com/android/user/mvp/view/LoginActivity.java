@@ -7,7 +7,7 @@ import com.android.common.utils.Router;
 import com.android.common.utils.SpUtils;
 import com.android.user.BuildConfig;
 import com.android.user.R;
-import com.android.user.mvp.model.LoginBean;
+import com.android.user.mvp.model.LoginRes;
 import com.android.user.mvp.present.LoginPresent;
 
 public class LoginActivity extends BaseActivity implements LoginView{
@@ -36,7 +36,7 @@ public class LoginActivity extends BaseActivity implements LoginView{
     }
 
     @Override
-    public void onLogin(LoginBean userBean) {
+    public void onLogin(LoginRes userBean) {
         hideProgress();
         SpUtils.putBoolean(this, ModuleConstant.IS_LOGIN,true);
         skip();

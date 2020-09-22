@@ -30,7 +30,6 @@
         android:maxLength="14"
         android:text="@string/loading"
         android:textColor="@color/loading_text"
-        android:textSize="12sp"
-        tools:text="测试" />
+        android:textSize="12sp" />
 
 </LinearLayout>

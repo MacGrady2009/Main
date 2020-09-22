@@ -1,9 +1,7 @@
 package com.android.common.widget;
 
 import android.content.Context;
-import android.view.KeyEvent;
 import android.view.View;
-import androidx.annotation.NonNull;
 import com.android.common.base.BaseDialog;
 import com.android.common.base.BaseListener;
 
@@ -28,10 +26,14 @@ public class AllDialog extends BaseDialog {
     }
 
     @Override
-    protected boolean nonNeedModel() {
-        return mBuilder.nonNeedModel;
+    protected boolean cancelable() {
+        return mBuilder.cancelable;
     }
 
+    @Override
+    protected boolean canceledOnTouchOutside() {
+        return mBuilder.canceledOnTouchOutside;
+    }
 
     @Override
     public void initView(View view) {
@@ -39,23 +41,7 @@ public class AllDialog extends BaseDialog {
             mBuilder.listener.onInit(this, view);
     }
 
-    @Override
-    public void onBackPressed() {
-        if (!mBuilder.nonBack)
-            super.onBackPressed();
-    }
 
-    @Override
-    public boolean onKeyDown(int keyCode, @NonNull KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK && mBuilder.backKeyDisimiss) {
-            dismiss();
-            if (mBuilder.rnListener != null) {//返回键按下回调
-                mBuilder.rnListener.onReturnKeyPress();
-            }
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
 
     public static class Builder {
         private Context context;
@@ -63,10 +49,8 @@ public class AllDialog extends BaseDialog {
         private int height;
         private int layoutId;
         private boolean needOverlay;
-        private boolean nonNeedModel;
-        private boolean nonBack;
-        private boolean backKeyDisimiss;//返回键消失
-        private ReturnKeyListener rnListener;
+        private boolean cancelable;
+        private boolean canceledOnTouchOutside;
         private BaseListener<AllDialog, View> listener;
 
         public Builder(Context mContext) {
@@ -93,16 +77,16 @@ public class AllDialog extends BaseDialog {
             return this;
         }
 
-
-        public Builder setNonNeedModel(boolean nonNeedModel) {
-            this.nonNeedModel = nonNeedModel;
+        public Builder setCancelable(boolean cancelable) {
+            this.cancelable = cancelable;
             return this;
         }
 
-        public Builder setNonBack(boolean nonBack) {
-            this.nonBack = nonBack;
+        public Builder setCanceledOnTouchOutside(boolean canceledOnTouchOutside) {
+            this.canceledOnTouchOutside = canceledOnTouchOutside;
             return this;
         }
+
 
         public Builder setListener(BaseListener<AllDialog, View> listener) {
             this.listener = listener;
@@ -114,21 +98,5 @@ public class AllDialog extends BaseDialog {
             return new AllDialog(this);
         }
 
-        public Builder setBackKeyDisimiss(boolean backKeyDisimiss) {
-            this.backKeyDisimiss = backKeyDisimiss;
-            return this;
-        }
-
-        public Builder setRnListener(ReturnKeyListener rnListener) {
-            this.rnListener = rnListener;
-            return this;
-        }
-    }
-
-    /**
-     * 返回键回调 RN专用
-     */
-    public interface ReturnKeyListener {
-        void onReturnKeyPress();
     }
 }

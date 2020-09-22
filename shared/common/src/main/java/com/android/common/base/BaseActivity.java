@@ -15,19 +15,19 @@ import com.android.common.utils.ActivityStack;
 import com.android.common.utils.EventBusUtil;
 import com.android.common.view.ExceptionView;
 import com.android.common.view.TopActionBar;
-import com.android.common.widget.CustomLoadingDialog;
+import com.android.common.widget.AllDialog;
+import com.android.common.widget.LoadingDialog;
 
 
 public abstract class BaseActivity extends AppCompatActivity implements BaseView{
 
     protected LayoutInflater mLayoutInflater;
     protected View rootView;
-    protected CustomLoadingDialog progressDlg;
+    protected AllDialog loadingDialog;
     protected TopActionBar topActionBar;
     protected ExceptionView errorView;
     protected Intent originIntent = null;
     protected boolean isRestoreState;
-    private boolean isSupportProgress = true;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -165,9 +165,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         return false;
     }
 
-    protected void setSupportProgress(boolean flag) {
-        this.isSupportProgress = flag;
-    }
 
     @Override
     protected void onNewIntent(Intent intent) {
@@ -180,11 +177,8 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
         EventBusUtil.unregister(this);
-        if (this.progressDlg != null && this.progressDlg.isShowing()) {
-            this.progressDlg.dismiss();
-        }
+        hideProgress();
         ActivityStack.getInstance().remove(this);
     }
 
@@ -193,54 +187,22 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
      * 显示加载框
      */
     public void showProgress() {
-        if (isSupportProgress) {
-            showProgress(null, true);
-        }
-    }
-
-    /**
-     * 显示加载框
-     * @param cancelable 是否可以取消
-     */
-    public void showProgress(boolean cancelable) {
-        showProgress(null, cancelable);
-    }
-
-    /**
-     * 显示加载框
-     * @param msg 显示加载框内容
-     */
-    public void showProgress(String msg) {
-        showProgress(msg, true);
-    }
-
-    /**
-     * 显示加载框
-     * @param msg        显示加载框内容
-     * @param cancelable 是否可以取消
-     */
-    public void showProgress(String msg, boolean cancelable) {
-        if ((!isDestroyed()) && isSupportProgress) {
-            if (progressDlg == null) {
-                progressDlg = new CustomLoadingDialog(this);
+        if ((!isDestroyed())) {
+            if (loadingDialog == null) {
+                loadingDialog = LoadingDialog.create(this);
             }
-            progressDlg.setCancelable(cancelable);
-            if (isProgressShown()) {
-                progressDlg.setMsg(msg);
-            } else {
-                progressDlg.show(msg);
-            }
+            loadingDialog.show();
         }
     }
 
     public void hideProgress() {
         if (isProgressShown()) {
-            progressDlg.dismiss();
+            loadingDialog.dismiss();
         }
     }
 
     public boolean isProgressShown() {
-        return (isSupportProgress && progressDlg != null) && progressDlg.isShowing();
+        return (loadingDialog != null) && loadingDialog.isShowing();
     }
 
     @Override

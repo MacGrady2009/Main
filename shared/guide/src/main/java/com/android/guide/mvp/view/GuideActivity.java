@@ -102,11 +102,11 @@ public class GuideActivity extends BaseActivity implements
         return false;
     }
 
-    private void skip(){
-        if (!SpUtils.getBoolean(this,ModuleConstant.IS_LOGIN,false)){
-            Router.getInstance().startActivity(this,null, BuildConfig.LOGIN);
-        }else {
-            Router.getInstance().startActivity(this,null, BuildConfig.MAIN);
+    private void skip() {
+        if (!SpUtils.getBoolean(this, ModuleConstant.IS_LOGIN, false)) {
+            Router.getInstance().startActivity(this, null, BuildConfig.LOGIN);
+        } else {
+            Router.getInstance().startActivity(this, null, BuildConfig.MAIN);
         }
         finish();
     }

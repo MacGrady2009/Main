@@ -43,10 +43,13 @@ public abstract class BaseDialog extends Dialog {
         return false;
     }
 
-    protected boolean nonNeedModel(){
-        return false;
+    protected boolean cancelable(){
+        return true;
     }
 
+    protected boolean canceledOnTouchOutside() {
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,16 +64,12 @@ public abstract class BaseDialog extends Dialog {
             }
         }
 
-
-        if (nonNeedModel()){
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL, WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL);
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH, WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH);
-        }
-
         rootView = layoutInflater.inflate(setRootView(), null);
         setContentView(rootView);
         initView(rootView);
         setDialogSize(mWidth, mHeight);
+        setCancelable(cancelable());
+        setCanceledOnTouchOutside(canceledOnTouchOutside());
     }
 
     @Override

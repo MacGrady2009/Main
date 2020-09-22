@@ -11,5 +11,5 @@ public interface LoginApi extends BaseApi {
      * 广告页获取广告
      */
     @GET("/api/login")
-    Observable<Response<ResponseBean<LoginBean>>> login();
+    Observable<Response<ResponseBean<LoginRes>>> login();
 }
