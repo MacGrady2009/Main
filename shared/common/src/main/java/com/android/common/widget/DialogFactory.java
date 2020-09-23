@@ -5,9 +5,9 @@ import android.view.ViewGroup;
 import com.android.common.R;
 
 
-public class LoadingDialog{
+public class DialogFactory{
 
-    public static AllDialog create(Context context) {
+    public static AllDialog createLoading(Context context) {
         AllDialog.Builder builder = new AllDialog.Builder(context)
             .setLayoutId(R.layout.layout_custom_loading_dialog)
             .setHeight(ViewGroup.LayoutParams.WRAP_CONTENT)

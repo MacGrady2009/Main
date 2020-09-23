@@ -13,7 +13,7 @@ import com.android.common.network.ResponseBean;
 import com.android.common.utils.FragmentStack;
 import com.android.common.view.TopActionBar;
 import com.android.common.widget.AllDialog;
-import com.android.common.widget.LoadingDialog;
+import com.android.common.widget.DialogFactory;
 import org.greenrobot.eventbus.EventBus;
 
 
@@ -175,7 +175,7 @@ public abstract class BaseFragment extends Fragment
     public void showProgress() {
         if (!isDetached()) {
             if (loadingDlg == null) {
-                loadingDlg = LoadingDialog.create(getActivity());
+                loadingDlg = DialogFactory.createLoading(getActivity());
             }
             loadingDlg.show();
         }

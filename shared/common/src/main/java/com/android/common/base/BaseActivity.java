@@ -16,7 +16,7 @@ import com.android.common.utils.EventBusUtil;
 import com.android.common.view.ExceptionView;
 import com.android.common.view.TopActionBar;
 import com.android.common.widget.AllDialog;
-import com.android.common.widget.LoadingDialog;
+import com.android.common.widget.DialogFactory;
 
 
 public abstract class BaseActivity extends AppCompatActivity implements BaseView{
@@ -189,7 +189,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     public void showProgress() {
         if ((!isDestroyed())) {
             if (loadingDialog == null) {
-                loadingDialog = LoadingDialog.create(this);
+                loadingDialog = DialogFactory.createLoading(this);
             }
             loadingDialog.show();
         }

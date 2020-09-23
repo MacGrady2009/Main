@@ -2,6 +2,7 @@ package com.android.main;
 
 import android.app.Application;
 import android.content.res.Configuration;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import com.android.common.utils.ActivityStack;
 import com.android.common.utils.AppUtils;

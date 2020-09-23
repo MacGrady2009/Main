@@ -1,5 +1,6 @@
 package com.android.guide.mvp.view;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -42,7 +43,10 @@ public class AdActivity extends BaseActivity implements AdView
 
     @Override
     protected void onInitView() {
-        if (isTaskRoot()){};
+        if (!isTaskRoot()){
+            finish();
+            return;
+        };
         String right = String.format(getString(R.string.right), "2020");
         mTvRight.setText(right);
         present = new AdPresent(this);
