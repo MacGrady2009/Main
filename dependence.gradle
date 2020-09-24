@@ -17,4 +17,6 @@ dependencies {
     //----图像变换 begin------
     implementation 'jp.wasabeef:glide-transformations:3.3.0'
     //----图像变换 end------
+    implementation 'com.google.zxing:android-core:3.3.0'
+    implementation 'com.google.zxing:core:3.4.0'
 }
