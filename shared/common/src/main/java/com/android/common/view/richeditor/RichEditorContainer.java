@@ -1,4 +1,4 @@
-package com.android.third.richeditor;
+package com.android.common.view.richeditor;
 
 import android.app.Activity;
 import android.graphics.Color;
@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.RelativeLayout;
 import androidx.annotation.IdRes;
+import com.android.common.R;
 import com.android.common.utils.KeyBoardUtil;
-import com.android.third.R;
 
 public class RichEditorContainer {
     private Activity mActivity;

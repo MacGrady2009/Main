@@ -1,7 +1,6 @@
 include ':shared:resource'
 include ':shared:user'
 include ':shared:guide'
-include ':shared:third'
 include ':shared:common'
 include ':app'
 rootProject.name = "Main"

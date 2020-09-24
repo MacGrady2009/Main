@@ -1,13 +1,13 @@
-package com.android.third.richeditor;
+package com.android.common.view.richeditor;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
-import com.android.third.R;
+import com.android.common.R;
 
 
-public class RichEditorActivity extends AppCompatActivity {
+public class RichEditorTestActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

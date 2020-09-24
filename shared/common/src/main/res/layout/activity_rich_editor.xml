@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-  <com.android.third.richeditor.RichEditor
+  <com.android.common.view.richeditor.RichEditor
       android:id="@+id/editor"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"

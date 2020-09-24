@@ -221,4 +221,13 @@
         </attr>
     </declare-styleable>
 
+    <declare-styleable name="RichEditor">
+        <attr name="height" format="dimension" />
+        <attr name="fontSize" format="dimension" />
+        <attr name="fontColor" format="reference|color" />
+        <attr name="placeholder" format="string" />
+        <attr name="bgColor" format="reference|color" />
+        <attr name="bgRes" format="reference|color" />
+    </declare-styleable>
+
 </resources>
