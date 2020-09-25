@@ -13,4 +13,5 @@ dependencies {
     implementation project(':shared:resource')
     implementation project(':shared:guide')
     implementation project(':shared:user')
+    implementation project(':shared:third:zxing')
 }
