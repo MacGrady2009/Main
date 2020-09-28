@@ -7,11 +7,11 @@ apply from: '../common-config.gradle'
 apply from: '../router-path.gradle'
 apply from: 'appid_config.gradle'
 
-
 dependencies {
     implementation project(':shared:common')
     implementation project(':shared:resource')
     implementation project(':shared:guide')
     implementation project(':shared:user')
     implementation project(':shared:third:zxing')
+    implementation project(':shared:third:amap')
 }

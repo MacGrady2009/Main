@@ -8,7 +8,7 @@ android {
         versionName rootProject.ext.build_versions.name
 
         ndk {
-            abiFilters "armeabi", "armeabi-v7a"
+            abiFilters "armeabi-v7a"
         }
     }
 
@@ -49,6 +49,12 @@ android {
             debuggable true
             minifyEnabled false
             signingConfig signingConfigs.debug
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
         }
     }
 

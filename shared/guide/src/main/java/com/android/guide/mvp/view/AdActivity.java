@@ -1,9 +1,11 @@
 package com.android.guide.mvp.view;
 
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.android.common.constant.Constant;
 import com.android.common.base.BaseActivity;
 import com.android.common.constant.ModuleConstant;
@@ -42,7 +44,7 @@ public class AdActivity extends BaseActivity implements AdView
     }
 
     @Override
-    protected void onInitView() {
+    protected void onInitView(@Nullable Bundle savedInstanceState) {
         if (!isTaskRoot()){
             finish();
             return;

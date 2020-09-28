@@ -3,5 +3,6 @@ include ':shared:user'
 include ':shared:guide'
 include ':shared:common'
 include ':shared:third:zxing'
+include ':shared:third:amap'
 include ':app'
 rootProject.name = "Main"

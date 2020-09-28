@@ -27,7 +27,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     protected TopActionBar topActionBar;
     protected ExceptionView errorView;
     protected Intent originIntent = null;
-    protected boolean isRestoreState;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -59,7 +58,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
             }
 
             onFindView();
-            onInitView();
+            onInitView(savedInstanceState);
             onInitEvent();
             onInitFragment();
         }
@@ -130,13 +129,10 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         }
     }
 
-
+    //onCreate方法彻底执行完毕的回调
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        if (!(isRestoreState && hasRestore())) {
-            onLoadData();
-        }
-
+        onLoadData();
     }
 
 
@@ -149,7 +145,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     protected void onFindView() {
     }
 
-    protected void onInitView() {
+    protected void onInitView(@Nullable Bundle savedInstanceState) {
     }
 
     protected void onInitEvent(){

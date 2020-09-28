@@ -11,6 +11,8 @@ android {
                     PORT : "8081",
                     AUTH_URL : "com.android.common.provider",
                     FILE_PROVIDER_AUTH : "",
+                    AMAP_NAME : "com.amap.api.v2.apikey",
+                    AMAP_KEY : "589ec44899bebe97081f48b5eee50ab4",
             ]
         }
 
@@ -22,6 +24,8 @@ android {
                     PORT : "8082",
                     AUTH_URL : "com.android.common.provider",
                     FILE_PROVIDER_AUTH : "",
+                    AMAP_NAME : "com.amap.api.v2.apikey",
+                    AMAP_KEY : "589ec44899bebe97081f48b5eee50ab4",
             ]
         }
         //预生产环境
@@ -32,6 +36,8 @@ android {
                     PORT : "8083",
                     AUTH_URL : "com.android.common.provider",
                     FILE_PROVIDER_AUTH : "",
+                    AMAP_NAME : "com.amap.api.v2.apikey",
+                    AMAP_KEY : "589ec44899bebe97081f48b5eee50ab4",
             ]
         }
         //生产环境
@@ -42,6 +48,8 @@ android {
                     PORT : "8080",
                     AUTH_URL : "com.android.common.provider",
                     FILE_PROVIDER_AUTH : "",
+                    AMAP_NAME : "com.amap.api.v2.apikey",
+                    AMAP_KEY : "589ec44899bebe97081f48b5eee50ab4",
 
             ]
         }

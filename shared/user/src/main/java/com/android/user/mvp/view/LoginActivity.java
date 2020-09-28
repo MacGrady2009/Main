@@ -1,5 +1,6 @@
 package com.android.user.mvp.view;
 
+import android.os.Bundle;
 import android.widget.Button;
 import com.android.common.base.BaseActivity;
 import com.android.common.constant.ModuleConstant;
@@ -24,7 +25,8 @@ public class LoginActivity extends BaseActivity implements LoginView{
         mLoginBtn = findViewById(R.id.btn_login);
     }
 
-    protected void onInitView() {
+    @Override
+    protected void onInitView(Bundle savedInstanceState) {
         present = new LoginPresent(this);
     }
 

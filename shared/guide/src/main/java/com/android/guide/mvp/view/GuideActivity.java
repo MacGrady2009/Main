@@ -1,11 +1,13 @@
 package com.android.guide.mvp.view;
 
 
+import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.android.common.base.BaseActivity;
 import com.android.common.constant.ModuleConstant;
 import com.android.common.utils.Router;
@@ -45,8 +47,8 @@ public class GuideActivity extends BaseActivity implements
     }
 
     @Override
-    protected void onInitView() {
-        super.onInitView();
+    protected void onInitView(@Nullable Bundle savedInstanceState) {
+        super.onInitView(savedInstanceState);
         start.setScaleX(0.0f);
         start.setScaleY(0.0f);
         start.setAlpha(0.0f);

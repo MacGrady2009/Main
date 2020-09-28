@@ -1,11 +1,13 @@
 package com.android.main.mvp.view.home;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import com.android.amap.AmapLocation;
 import com.android.common.base.BaseActivity;
 import com.android.main.R;
 import com.android.main.business.home.fragment.HomeFirstFragment;
@@ -42,8 +44,8 @@ public class MainActivity extends BaseActivity
 
 
     @Override
-    protected void onInitView() {
-        super.onInitView();
+    protected void onInitView(Bundle savedInstanceState) {
+        super.onInitView(savedInstanceState);
         //chat
         mRlChat = findViewById(R.id.rl_first);
         mIvChat = findViewById(R.id.iv_first);
@@ -91,6 +93,7 @@ public class MainActivity extends BaseActivity
         mRlChat.setOnClickListener(this);
         mRlContact.setOnClickListener(this);
         mRlMine.setOnClickListener(this);
+        AmapLocation.getInstance(this).startOnceLocation();
     }
 
     @Override

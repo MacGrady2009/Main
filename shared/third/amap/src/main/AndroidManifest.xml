@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.android.amap">
+  <application>
+    <meta-data
+        android:name="${AMAP_NAME}"
+        android:value="${AMAP_KEY}"/>
+    <service android:name="com.amap.api.location.APSService"></service>
+  </application>
+</manifest>
