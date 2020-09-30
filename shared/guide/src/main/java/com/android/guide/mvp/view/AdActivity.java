@@ -1,7 +1,6 @@
 package com.android.guide.mvp.view;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -36,7 +35,7 @@ public class AdActivity extends BaseActivity implements AdView
     }
 
     @Override
-    protected void onFindView() {
+    protected void onFindView() { 
         super.onFindView();
         mIvAd = findViewById(R.id.img_ad);
         mTvAdTime = findViewById(R.id.tv_ad_time);
@@ -95,5 +94,28 @@ public class AdActivity extends BaseActivity implements AdView
             Router.getInstance().startActivity(this,null, BuildConfig.MAIN);
             finish();
         }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        present.setActivityState(true);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        present.setActivityState(false);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        present = null;
     }
 }

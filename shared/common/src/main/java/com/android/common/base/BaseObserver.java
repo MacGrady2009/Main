@@ -1,7 +1,5 @@
 package com.android.common.base;
 
-import android.util.Log;
-import com.android.common.base.BaseBean;
 import com.android.common.network.Constant;
 import com.android.common.network.ResponseBean;
 import com.android.common.utils.RxUtils;

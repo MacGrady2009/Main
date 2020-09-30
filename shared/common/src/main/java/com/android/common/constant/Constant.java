@@ -52,5 +52,5 @@ public class Constant {
     /**
      * ad页面广告播放时间
      */
-    public static final long AD_TIME = 3;
+    public static final long AD_TIME = 10;
 }

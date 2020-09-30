@@ -2,8 +2,8 @@ package com.android.common.base;
 
 import com.android.common.network.RetrofitManager;
 import com.android.common.utils.RxUtils;
+import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Observable;
-import io.reactivex.rxjava3.disposables.Disposable;
 
 public class BasePresentImpl<V extends BaseView,S extends BaseApi> implements BaseInterface {
     protected V mBaseView;
@@ -19,5 +19,9 @@ public class BasePresentImpl<V extends BaseView,S extends BaseApi> implements Ba
 
     public static <T> Observable<T> compose(Observable<T> observable) {
         return RxUtils.subscribe(observable);
+    }
+
+    public static <T> Flowable<T> compose(Flowable<T> flowAble) {
+        return RxUtils.subscribe(flowAble);
     }
 }

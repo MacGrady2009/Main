@@ -2,10 +2,8 @@ package com.android.amap;
 
 import android.content.Context;
 import android.util.Log;
-import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
-import com.amap.api.location.AMapLocationListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
