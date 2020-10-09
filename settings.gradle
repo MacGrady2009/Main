@@ -4,5 +4,6 @@ include ':shared:guide'
 include ':shared:common'
 include ':shared:third:zxing'
 include ':shared:third:amap'
+include ':shared:third:banner'
 include ':app'
 rootProject.name = "Main"
