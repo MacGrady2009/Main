@@ -19,4 +19,9 @@ dependencies {
     //----图像变换 end------
     implementation 'com.google.zxing:android-core:3.3.0'
     implementation 'com.google.zxing:core:3.4.0'
+    //核心必须依赖
+    implementation  'com.scwang.smart:refresh-layout-kernel:2.0.1'
+    //谷歌刷新头
+    implementation  'com.scwang.smart:refresh-header-material:2.0.1'
+    implementation  'com.tencent.bugly:crashreport:2.8.6.0'
 }
