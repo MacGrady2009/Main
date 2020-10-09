@@ -35,7 +35,7 @@ public class AdActivity extends BaseActivity implements AdView
     }
 
     @Override
-    protected void onFindView() { 
+    protected void onFindView() {
         super.onFindView();
         mIvAd = findViewById(R.id.img_ad);
         mTvAdTime = findViewById(R.id.tv_ad_time);

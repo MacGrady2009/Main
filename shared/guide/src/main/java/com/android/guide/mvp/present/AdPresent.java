@@ -29,7 +29,6 @@ public class AdPresent extends BasePresentImpl<AdView, GuideApi> {
 
     /**
      * 倒计时
-     *
      * @param countSecond
      */
     public void countDown(Long countSecond) {
@@ -101,7 +100,6 @@ public class AdPresent extends BasePresentImpl<AdView, GuideApi> {
         mIsPause4Activity = isPause;
         if (mIsWait && (!mIsPause4Activity)){
             synchronized (lock){
-                Log.d("wb005","setActivityState notifyAll");
                 lock.notify();
                 mIsWait = false;
             }
