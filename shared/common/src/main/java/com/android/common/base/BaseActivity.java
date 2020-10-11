@@ -25,7 +25,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     protected View rootView;
     protected AllDialog loadingDialog;
     protected TopActionBar topActionBar;
-    protected ExceptionView errorView;
+    protected ExceptionView mErrorView;
     protected Intent originIntent = null;
 
     @Override
@@ -53,7 +53,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
                 addSpecialErrorView();
             }
 
-            if (errorView != null) {
+            if (mErrorView != null) {
                 initErrorView();
             }
 
@@ -92,8 +92,8 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
 
     }
     public void initErrorView() {
-        if (errorView != null) {
-            errorView.setOnReloadListener(new View.OnClickListener() {
+        if (mErrorView != null) {
+            mErrorView.setOnReloadListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     onErrorClick();
@@ -103,8 +103,8 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     }
 
     public void onErrorClick() {
-        if (errorView != null) {
-            errorView.hide();
+        if (mErrorView != null) {
+            mErrorView.hide();
         }
         onLoadData();
     }

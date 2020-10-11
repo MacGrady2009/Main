@@ -34,7 +34,6 @@ public abstract class BaseFragment extends Fragment
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FragmentStack.getInstance().add(this);
-
         this.mActivity = this.getActivity();
         this.args = this.getArguments();
         if (this.args == null) {
