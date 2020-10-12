@@ -10,7 +10,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.android.common.R;
 import com.android.common.network.ResponseBean;
+import com.android.common.utils.AppUtils;
 import com.android.common.utils.FragmentStack;
+import com.android.common.view.ExceptionView;
 import com.android.common.view.TopActionBar;
 import com.android.common.widget.AllDialog;
 import com.android.common.widget.DialogFactory;
@@ -20,10 +22,10 @@ import org.greenrobot.eventbus.EventBus;
 public abstract class BaseFragment extends Fragment
     implements BaseView{
     protected Activity mActivity;
-    protected View rootView;
+    protected ViewGroup rootView;
     protected LayoutInflater mLayoutInflater;
     protected Bundle args;
-    protected boolean isViewCreated = false;
+    protected ExceptionView mErrorView;
     protected TopActionBar topActionBar;
     protected AllDialog loadingDlg;
 
@@ -51,15 +53,25 @@ public abstract class BaseFragment extends Fragment
                 parent.removeView(rootView);
             }
         } else {
-            this.rootView = this.mLayoutInflater.inflate(this.onSetRootViewId(), container, false);
+            this.rootView = (ViewGroup) this.mLayoutInflater.inflate(this.onSetRootViewId(), container, false);
         }
+
+        if (needSpecialErrorView()) {
+            addSpecialErrorView();
+        }
+
+        mErrorView = rootView.findViewById(R.id.errorView);
+
+        if (mErrorView != null) {
+            initErrorView();
+        }
+
         return this.rootView;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        onPageChange(false);
         this.onLoadData();
     }
 
@@ -109,33 +121,6 @@ public abstract class BaseFragment extends Fragment
         }
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        //  this.saveStateToArguments();
-    }
-
-    @Override
-    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
-        super.onViewStateRestored(savedInstanceState);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        onPageStart();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        onPageEnd();
-    }
 
     @Override
     public void onDestroyView() {
@@ -153,6 +138,32 @@ public abstract class BaseFragment extends Fragment
         FragmentStack.getInstance().remove(this);
     }
 
+    private void addSpecialErrorView() {
+        rootView.addView(mLayoutInflater.inflate(R.layout.layout_special_error_view, rootView, false));
+    }
+
+    protected boolean needSpecialErrorView() {
+        return false;
+    }
+
+    public void initErrorView() {
+        if (mErrorView != null) {
+            mErrorView.setOnReloadListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onErrorClick();
+                }
+            });
+        }
+    }
+
+    public void onErrorClick() {
+        if (mErrorView != null) {
+            mErrorView.hide();
+        }
+        onLoadData();
+    }
+
     public abstract int onSetRootViewId();
 
     protected void onFindView() {
@@ -165,6 +176,10 @@ public abstract class BaseFragment extends Fragment
     }
 
     protected void onLoadData() {
+    }
+
+    public boolean isAlive() {
+        return AppUtils.isAlive(this);
     }
 
 
@@ -190,27 +205,6 @@ public abstract class BaseFragment extends Fragment
         }
     }
 
-
-    @Override
-    public void onHiddenChanged(boolean hidden) {
-        onPageChange(hidden);
-    }
-
-    protected void onPageChange(boolean hidden) {
-        if (isViewCreated) {
-            if (hidden) {
-                onPageStart();
-            } else {
-                onPageEnd();
-            }
-        }
-    }
-
-    protected void onPageStart() {
-    }
-
-    protected void onPageEnd() {
-    }
 
     @Override
     public void onFailed(ResponseBean responseBean) {

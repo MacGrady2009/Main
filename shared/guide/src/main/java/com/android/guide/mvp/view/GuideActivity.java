@@ -47,8 +47,8 @@ public class GuideActivity extends BaseActivity implements
     }
 
     @Override
-    protected void onInitView(@Nullable Bundle savedInstanceState) {
-        super.onInitView(savedInstanceState);
+    protected void onInitView() {
+        super.onInitView();
         start.setScaleX(0.0f);
         start.setScaleY(0.0f);
         start.setAlpha(0.0f);

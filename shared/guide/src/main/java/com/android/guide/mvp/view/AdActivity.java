@@ -43,7 +43,7 @@ public class AdActivity extends BaseActivity implements AdView
     }
 
     @Override
-    protected void onInitView(@Nullable Bundle savedInstanceState) {
+    protected void onInitView() {
         if (!isTaskRoot()){
             finish();
             return;

@@ -26,7 +26,7 @@ public class LoginActivity extends BaseActivity implements LoginView{
     }
 
     @Override
-    protected void onInitView(Bundle savedInstanceState) {
+    protected void onInitView() {
         present = new LoginPresent(this);
     }
 

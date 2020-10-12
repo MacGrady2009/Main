@@ -44,8 +44,8 @@ public class MainActivity extends BaseActivity
 
 
     @Override
-    protected void onInitView(Bundle savedInstanceState) {
-        super.onInitView(savedInstanceState);
+    protected void onInitView() {
+        super.onInitView();
         //chat
         mRlChat = findViewById(R.id.rl_first);
         mIvChat = findViewById(R.id.iv_first);

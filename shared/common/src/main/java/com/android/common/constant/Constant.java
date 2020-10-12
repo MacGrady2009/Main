@@ -52,5 +52,10 @@ public class Constant {
     /**
      * ad页面广告播放时间
      */
-    public static final long AD_TIME = 10;
+    public static final long AD_TIME = 3;
+
+    /**
+     * 分页每页条目数
+     */
+    public static final long ITEMS_EVERY_PAGE = 20;
 }

@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.android.common.R;
 import com.android.common.network.ResponseBean;
 import com.android.common.utils.ActivityStack;
+import com.android.common.utils.AppUtils;
 import com.android.common.utils.EventBusUtil;
 import com.android.common.view.ExceptionView;
 import com.android.common.view.TopActionBar;
@@ -53,12 +54,13 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
                 addSpecialErrorView();
             }
 
+            mErrorView = findViewById(R.id.errorView);
             if (mErrorView != null) {
                 initErrorView();
             }
 
             onFindView();
-            onInitView(savedInstanceState);
+            onInitView();
             onInitEvent();
             onInitFragment();
         }
@@ -145,7 +147,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     protected void onFindView() {
     }
 
-    protected void onInitView(@Nullable Bundle savedInstanceState) {
+    protected void onInitView() {
     }
 
     protected void onInitEvent(){
@@ -157,8 +159,8 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     protected void onLoadData() {
     }
 
-    protected boolean hasRestore() {
-        return false;
+    public boolean isAlive() {
+        return AppUtils.isAlive(this);
     }
 
 
