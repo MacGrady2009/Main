@@ -33,6 +33,8 @@ public abstract class BaseRvActivity<T> extends BaseActivity implements BaseBind
     @Override
     protected void onInitView() {
         mBaseRvBind = new BaseBindView(rootView);
+        mBaseRvBind.setListener(this);
+        mBaseRvBind.setAdapter(initAdapter());
     }
 
     @Override
@@ -69,7 +71,7 @@ public abstract class BaseRvActivity<T> extends BaseActivity implements BaseBind
     protected void onRefreshOrLoadMore() {
     }
 
-    public abstract void initAdapter();
+    protected abstract BaseRvAdapter<T> initAdapter();
 
     /**
      * 是否需要自动刷新

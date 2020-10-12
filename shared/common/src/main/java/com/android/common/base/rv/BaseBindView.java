@@ -49,9 +49,6 @@ public class BaseBindView<T> {
 
         });
         mRv.setLayoutManager(new LinearLayoutManager(mRv.getContext()));
-        if (mAdapter != null) {
-            mRv.setAdapter(this.mAdapter);
-        }
     }
 
 
@@ -141,5 +138,8 @@ public class BaseBindView<T> {
 
     public void setAdapter(BaseRvAdapter<T> adapter) {
         this.mAdapter = adapter;
+        if (mRv != null && mAdapter != null) {
+            mRv.setAdapter(this.mAdapter);
+        }
     }
 }

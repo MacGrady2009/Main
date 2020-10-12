@@ -1,6 +1,5 @@
-package com.android.main.mvp.view.home;
+package com.android.main.business.home.activity;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;

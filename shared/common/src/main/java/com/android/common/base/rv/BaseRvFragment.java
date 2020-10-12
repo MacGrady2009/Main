@@ -29,6 +29,8 @@ public abstract class BaseRvFragment<T>
     @Override
     protected void onInitView() {
         mBaseRvBind = new BaseBindView(rootView);
+        mBaseRvBind.setListener(this);
+        mBaseRvBind.setAdapter(initAdapter());
     }
 
     @Override
@@ -65,7 +67,7 @@ public abstract class BaseRvFragment<T>
     protected void onRefreshOrLoadMore() {
     }
 
-    public abstract void initAdapter();
+    protected abstract BaseRvAdapter<T> initAdapter();
 
     /**
      * 是否需要自动刷新

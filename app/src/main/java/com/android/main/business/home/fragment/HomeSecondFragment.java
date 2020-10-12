@@ -1,9 +1,17 @@
 package com.android.main.business.home.fragment;
 
-import com.android.common.base.BaseFragment;
-import com.android.main.R;
+import android.view.ViewGroup;
+import androidx.recyclerview.widget.RecyclerView;
+import com.android.common.base.rv.BaseRvAdapter;
+import com.android.common.base.rv.BaseRvFragment;
+import com.android.common.network.ResponseBean;
+import com.android.main.mvp.model.home.SecondBean;
+import java.util.ArrayList;
+import java.util.List;
 
-public class HomeSecondFragment extends BaseFragment {
+public class HomeSecondFragment extends BaseRvFragment<SecondBean> {
+
+    private List<SecondBean> dataList = new ArrayList<>();
 
     public static HomeSecondFragment instance;
 
@@ -19,22 +27,24 @@ public class HomeSecondFragment extends BaseFragment {
     }
 
     @Override
-    public int onSetRootViewId() {
-        return R.layout.fragment_home_second;
+    protected BaseRvAdapter<SecondBean> initAdapter(){
+        BaseRvAdapter<SecondBean> adapter = new BaseRvAdapter(this.getContext(),dataList){
+
+            @Override
+            protected RecyclerView.ViewHolder createDataViewHolder(ViewGroup parent, int viewType) {
+                return null;
+            }
+        };
+        adapter.setOnItemClickListener((view,position) ->{
+
+        });
+        return adapter;
     }
 
-    @Override
-    protected void onFindView() {
-        super.onFindView();
-    }
 
     @Override
-    protected void onInitView() {
-        super.onInitView();
-    }
-
-    @Override
-    protected void onInitEvent() {
-        super.onInitEvent();
+    public void onFailed(ResponseBean responseBean) {
+        super.onFailed(responseBean);
+        refreshOrLoadFailed();
     }
 }

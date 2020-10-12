@@ -1,4 +1,4 @@
-package com.android.guide.mvp.view;
+package com.android.guide.business;
 
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +14,7 @@ import com.android.guide.BuildConfig;
 import com.android.guide.R;
 import com.android.guide.mvp.model.AdBean;
 import com.android.guide.mvp.present.AdPresent;
+import com.android.guide.mvp.view.AdView;
 
 /**
  * 广告页

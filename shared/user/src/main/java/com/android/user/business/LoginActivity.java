@@ -1,4 +1,4 @@
-package com.android.user.mvp.view;
+package com.android.user.business;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -10,8 +10,9 @@ import com.android.user.BuildConfig;
 import com.android.user.R;
 import com.android.user.mvp.model.LoginRes;
 import com.android.user.mvp.present.LoginPresent;
+import com.android.user.mvp.view.LoginView;
 
-public class LoginActivity extends BaseActivity implements LoginView{
+public class LoginActivity extends BaseActivity implements LoginView {
 
     private LoginPresent present;
 
