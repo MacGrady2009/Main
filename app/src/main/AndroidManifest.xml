@@ -24,6 +24,21 @@
             />
       </intent-filter>
     </activity>
+    <activity
+        android:name=".business.home.activity.HomeSecondActivity"
+        android:screenOrientation="portrait">
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <data
+            android:scheme="${SCHEME}"
+            android:host="${HOST}"
+            android:port="${PORT}"
+            android:path="${HOME_SECOND}"
+            />
+      </intent-filter>
+    </activity>
+
   </application>
 
 </manifest>

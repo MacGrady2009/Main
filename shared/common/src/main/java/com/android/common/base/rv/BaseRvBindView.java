@@ -13,7 +13,7 @@ import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BaseBindView<T> {
+public class BaseRvBindView<T> {
     //当前页数
     private int page = 1;
 
@@ -29,7 +29,7 @@ public class BaseBindView<T> {
 
     Listener listener;
 
-    public BaseBindView(View rootView){
+    public BaseRvBindView(View rootView){
         mSmartRefreshLayout  = rootView.findViewById(R.id.refreshLayout);
         mRv = rootView.findViewById(R.id.recyclerView);
         initViews();

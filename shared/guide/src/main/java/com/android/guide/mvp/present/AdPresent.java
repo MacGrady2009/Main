@@ -86,6 +86,7 @@ public class AdPresent extends BasePresentImpl<AdView, GuideApi> {
             .subscribe(new BusinessObserver<AdBean>() {
                 @Override
                 public void onSucceed(AdBean adBean) {
+                    mBaseView.onSucceed();
                     mBaseView.onGetAd(adBean);
                 }
 

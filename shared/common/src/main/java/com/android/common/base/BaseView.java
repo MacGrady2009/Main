@@ -8,4 +8,8 @@ public interface BaseView extends BaseInterface {
      * @param responseBean
      */
     void onFailed(ResponseBean responseBean);
+    /**
+     * 网络接口请求成功统一回调
+     */
+    void onSucceed();
 }

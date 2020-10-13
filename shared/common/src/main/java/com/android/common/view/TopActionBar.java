@@ -141,7 +141,7 @@ public class TopActionBar extends RelativeLayout {
             background = ta.getDrawable(R.styleable.TopActionBar_android_background);
             title = ta.getString(R.styleable.TopActionBar_topbarTitle);
             isLeftShow = ta.getBoolean(R.styleable.TopActionBar_topbarIsLeftShow, false);
-            leftImgRes = ta.getResourceId(R.styleable.TopActionBar_topbarLeftImgRes, R.drawable.ic_back);
+            leftImgRes = ta.getResourceId(R.styleable.TopActionBar_topbarLeftImgRes, R.mipmap.ic_back);
             leftText = ta.getString(R.styleable.TopActionBar_topbarLeftText);
             if (!isLeftShow) leftImgRes = 0;
 

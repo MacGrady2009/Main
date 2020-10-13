@@ -1,12 +1,12 @@
-package com.android.common.base.rv;
+package com.android.common.base;
 
 import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-public abstract class BaseRvHolder<T> extends RecyclerView.ViewHolder {
+public abstract class BaseHolder<T> extends RecyclerView.ViewHolder {
 
-    public BaseRvHolder(View itemView) {
+    public BaseHolder(View itemView) {
         super(itemView);
     }
 

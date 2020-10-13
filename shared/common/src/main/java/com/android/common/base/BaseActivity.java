@@ -41,7 +41,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         } else {
             this.mLayoutInflater = LayoutInflater.from(this);
             this.rootView = this.mLayoutInflater.inflate(rootViewId, (ViewGroup) null, false);
-            this.setContentView(rootViewId);
+            this.setContentView(rootView);
 
             if (needEventBus()) {
                 EventBusUtil.register(this);
@@ -67,7 +67,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     }
 
     public void initTopActionBar() {
-        topActionBar.showButtonImage(R.drawable.ic_arrow_title, TopActionBar.LEFT_AREA);
+        topActionBar.showButtonImage(R.mipmap.ic_arrow_title, TopActionBar.LEFT_AREA);
         topActionBar.setButtonClickListener(new TopActionBar.OnTopBarButtonClickListener() {
             public void onLeftButtonClick(View view) {
                 leftButtonClick();
@@ -204,6 +204,12 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
 
     @Override
     public void onFailed(ResponseBean responseBean) {
+        hideProgress();
         Toast.makeText(this,responseBean.getMessage()+"["+ responseBean.getCode() +"]",Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onSucceed() {
+        hideProgress();
     }
 }

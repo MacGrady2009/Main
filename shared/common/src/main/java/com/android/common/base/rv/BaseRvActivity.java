@@ -14,9 +14,9 @@ import java.util.List;
 /**
  * 基类recyclerViewActivity
  */
-public abstract class BaseRvActivity<T> extends BaseActivity implements BaseBindView.Listener{
+public abstract class BaseRvActivity<T> extends BaseActivity implements BaseRvBindView.Listener{
 
-    public BaseBindView<T> mBaseRvBind;
+    public BaseRvBindView<T> mBaseRvBind;
 
     @Override
     protected int onSetRootViewId() {
@@ -32,7 +32,7 @@ public abstract class BaseRvActivity<T> extends BaseActivity implements BaseBind
 
     @Override
     protected void onInitView() {
-        mBaseRvBind = new BaseBindView(rootView);
+        mBaseRvBind = new BaseRvBindView(rootView);
         mBaseRvBind.setListener(this);
         mBaseRvBind.setAdapter(initAdapter());
     }
@@ -94,7 +94,6 @@ public abstract class BaseRvActivity<T> extends BaseActivity implements BaseBind
      */
     @UiThread
     public void refreshOrLoadSuccess(List<T> list, boolean hasMoreData) {
-        hideProgress();
         if (!isAlive() || mErrorView == null) return;
         mErrorView.setVisibility(View.GONE);
         if (AppUtils.isAlive(this)) {
@@ -118,7 +117,6 @@ public abstract class BaseRvActivity<T> extends BaseActivity implements BaseBind
 
     @UiThread
     public void refreshOrLoadFailed() {
-        hideProgress();
         if (!isAlive() || mErrorView == null) return;
         if (AppUtils.isAlive(this)) {
             if (mBaseRvBind.isRefresh() || !mBaseRvBind.isLoadMore()) {

@@ -69,7 +69,7 @@ public class TabLayoutUtil {
                 textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, selectedTextSize);
                 textView.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
                 textView.setTextColor(selectedColor);
-                textView.setBackgroundResource(R.drawable.ic_exam_question_tab_bg);
+                textView.setBackgroundResource(R.mipmap.ic_exam_question_tab_bg);
             } else {
                 textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, unSelectTextSize);
                 textView.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
@@ -87,7 +87,7 @@ public class TabLayoutUtil {
                 TextView textView = (TextView) tab.getCustomView();
                 if (textView != null) {
                     textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, selectedTextSize);
-                    textView.setBackgroundResource(R.drawable.ic_exam_question_tab_bg);
+                    textView.setBackgroundResource(R.mipmap.ic_exam_question_tab_bg);
                     textView.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
                     textView.setTextColor(selectedColor);
                 }

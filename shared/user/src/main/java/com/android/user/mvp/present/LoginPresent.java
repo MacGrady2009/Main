@@ -23,6 +23,7 @@ public class LoginPresent extends BasePresentImpl<LoginView, LoginApi> {
 
                 @Override
                 public void onSucceed(LoginRes userBean) {
+                    mBaseView.onSucceed();
                     mBaseView.onLogin(userBean);
                 }
 

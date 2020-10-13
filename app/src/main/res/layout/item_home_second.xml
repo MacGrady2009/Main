@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp_15"
+    android:layout_marginRight="@dimen/dp_10"
+    android:layout_marginLeft="@dimen/dp_10">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_2"
+        app:cardBackgroundColor="#FFF7F0"
+        app:useCompatPadding="true"
+        app:cardCornerRadius="@dimen/dp_10"
+        app:cardElevation="0dp">
+
+        <TextView
+            android:id="@+id/tv_is_full"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|right"
+            android:background="@mipmap/exam_full"
+            android:text="满"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_12" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingBottom="@dimen/dp_10">
+
+            <LinearLayout
+                android:id="@+id/ll_classify"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_exam_room"
+                android:layout_marginTop="@dimen/dp_11"
+                android:layout_marginBottom="@dimen/dp_4"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/dp_8">
+
+                <TextView
+                    android:id="@+id/tv_exam_classify"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/exam_classify_bg"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="4dp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_13" />
+
+                <TextView
+                    android:id="@+id/tv_question_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/text_color_303030"
+                    android:textSize="@dimen/sp_13" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_exam_room"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_17"
+                android:textColor="@color/text_color_303030"
+                android:textSize="@dimen/sp_13" />
+
+            <TextView
+                android:id="@+id/tv_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/dp_22"
+                android:background="@mipmap/exam_number_bg"
+                android:gravity="center_horizontal"
+                android:paddingTop="@dimen/dp_5"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="80dp"
+                android:layout_height="47dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/dp_16"
+                android:background="@mipmap/exam_time_bg"
+                android:gravity="center"
+                android:textColor="#F29443"
+                android:textSize="@dimen/sp_12" />
+
+            <LinearLayout
+                android:id="@+id/ll_count_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_classify"
+                android:background="@drawable/shape_corner"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/dp_8"
+                android:paddingRight="@dimen/dp_8"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/img_count_down"
+                    android:layout_width="@dimen/dp_14"
+                    android:layout_height="@dimen/dp_14" />
+
+                <TextView
+                    android:id="@+id/tv_left_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_4"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/sp_12" />
+            </LinearLayout>
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/iv_fee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_10"
+        android:src="@mipmap/free"
+        android:visibility="visible"/>
+</RelativeLayout>

@@ -7,10 +7,10 @@
 
     <selector>
         <item android:state_enabled="false"
-            android:drawable="@drawable/bg_edittext_material"/>
+            android:drawable="@mipmap/bg_edittext_material"/>
         <item android:state_pressed="false"
             android:state_focused="false"
-            android:drawable="@drawable/bg_edittext_material"/>
-        <item android:drawable="@drawable/bg_edittext_material_checked"/>
+            android:drawable="@mipmap/bg_edittext_material"/>
+        <item android:drawable="@mipmap/bg_edittext_material_checked"/>
     </selector>
 </inset>

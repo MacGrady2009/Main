@@ -2,6 +2,7 @@ def advert = "/Advert"
 def guide = "/Guide"
 def main = "/Main"
 def login = "/Login"
+def homeSecond = "/HomeSecond"
 
 android {
     defaultConfig {
@@ -9,11 +10,13 @@ android {
         buildConfigField 'String', 'GUIDE',"\"${guide}\""
         buildConfigField 'String', 'MAIN',"\"${main}\""
         buildConfigField 'String', 'LOGIN',"\"${login}\""
+        buildConfigField 'String', 'HOME_SECOND',"\"${homeSecond}\""
         manifestPlaceholders = [
                 ADVERT : "${advert}",
                 GUIDE : "${guide}",
                 MAIN : "${main}",
                 LOGIN : "${login}",
+                HOME_SECOND : "${homeSecond}",
         ]
     }
 }

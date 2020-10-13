@@ -23,6 +23,6 @@
         android:paddingRight="15dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:src="@drawable/icon_del_history"/>
+        android:src="@mipmap/icon_del_history"/>
 
 </LinearLayout>

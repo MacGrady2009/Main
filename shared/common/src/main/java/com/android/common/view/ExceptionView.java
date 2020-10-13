@@ -95,7 +95,7 @@ public class ExceptionView extends FrameLayout {
         if (state == NO_CONNECTIONING) {
             mBtnReload.setVisibility(View.VISIBLE);
             mTvAbNormalWarn2.setVisibility(View.VISIBLE);
-            mIvAbNormal.setImageResource(R.drawable.ic_abnormal_no_connecting);
+            mIvAbNormal.setImageResource(R.mipmap.ic_abnormal_no_connecting);
             if (!TextUtils.isEmpty(text)) {
                 mTvAbNormalWarn1.setText(text);
             } else {
@@ -103,7 +103,7 @@ public class ExceptionView extends FrameLayout {
             }
 
         } else if (state == NO_CONTENT) {
-            mIvAbNormal.setImageResource(R.drawable.ic_abnormal_no_content);
+            mIvAbNormal.setImageResource(R.mipmap.ic_abnormal_no_content);
             if (!TextUtils.isEmpty(text)) {
                 mTvAbNormalWarn1.setText(text);
             } else {
@@ -111,14 +111,14 @@ public class ExceptionView extends FrameLayout {
             }
 
         } else if (state == PAGE_ERROR) {
-            mIvAbNormal.setImageResource(R.drawable.ic_abnormal_page_error);
+            mIvAbNormal.setImageResource(R.mipmap.ic_abnormal_page_error);
             if (!TextUtils.isEmpty(text)) {
                 mTvAbNormalWarn1.setText(text);
             } else {
                 mTvAbNormalWarn1.setText(getContext().getResources().getString(R.string.abnormal_page_error));
             }
         } else {
-            mIvAbNormal.setImageResource(R.drawable.ic_abnormal_reload);
+            mIvAbNormal.setImageResource(R.mipmap.ic_abnormal_reload);
             if (!TextUtils.isEmpty(text)) {
                 mTvAbNormalWarn1.setText(text);
             } else {

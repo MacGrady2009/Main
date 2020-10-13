@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class BaseRvFragment<T>
-    extends BaseFragment implements BaseBindView.Listener{
+    extends BaseFragment implements BaseRvBindView.Listener{
 
-    public BaseBindView<T> mBaseRvBind;
+    public BaseRvBindView<T> mBaseRvBind;
 
     public int onSetRootViewId() {
         return R.layout.common_base_rv;
@@ -28,7 +28,7 @@ public abstract class BaseRvFragment<T>
 
     @Override
     protected void onInitView() {
-        mBaseRvBind = new BaseBindView(rootView);
+        mBaseRvBind = new BaseRvBindView(rootView);
         mBaseRvBind.setListener(this);
         mBaseRvBind.setAdapter(initAdapter());
     }
@@ -89,8 +89,7 @@ public abstract class BaseRvFragment<T>
      * 上拉加载或下拉刷新成功后的回调
      */
     @UiThread
-    public void refreshOrLoadSuccess(List<T> list, boolean hasMoreData) {
-        hideProgress();
+    private void refreshOrLoadSuccess(List<T> list, boolean hasMoreData) {
         if (!isAlive() || mErrorView == null) return;
         mErrorView.setVisibility(View.GONE);
         if (AppUtils.isAlive(this)) {
@@ -114,7 +113,6 @@ public abstract class BaseRvFragment<T>
 
     @UiThread
     public void refreshOrLoadFailed() {
-        hideProgress();
         if (!isAlive() || mErrorView == null) return;
         if (AppUtils.isAlive(this)) {
             if (mBaseRvBind.isRefresh() || !mBaseRvBind.isLoadMore()) {

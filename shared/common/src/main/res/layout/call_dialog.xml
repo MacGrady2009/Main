@@ -32,7 +32,7 @@
                 android:textColor="@color/color_cancel"
                 android:text="@string/audio_call"
                 android:textSize="18sp"
-                android:drawableLeft="@drawable/rtc_iv_chat_status_icon" />
+                android:drawableLeft="@mipmap/rtc_iv_chat_status_icon" />
         </LinearLayout>
 
         <View
@@ -59,7 +59,7 @@
                 android:textColor="@color/color_cancel"
                 android:text="@string/video_call"
                 android:textSize="18sp"
-                android:drawableLeft="@drawable/rtc_iv_choose_video_icon" />
+                android:drawableLeft="@mipmap/rtc_iv_choose_video_icon" />
         </LinearLayout>
     </LinearLayout>
 

@@ -60,9 +60,9 @@ public class WithHistoryEditText extends AppCompatEditText {
 		mPullDownDrawable = getCompoundDrawables()[2];
 		if (mPullDownDrawable == null) {
 //          throw new NullPointerException("You can add drawableRight attribute in XML");
-			mPullDownDrawable = getResources().getDrawable(R.drawable.arrow_down);
+			mPullDownDrawable = getResources().getDrawable(R.mipmap.arrow_down);
 		}
-		mPullUpDrawable = getResources().getDrawable(R.drawable.arrow_up);
+		mPullUpDrawable = getResources().getDrawable(R.mipmap.arrow_up);
 		if(mPullDownDrawable != null && mPullUpDrawable != null) {
 			mPullDownDrawable.setBounds(0, 0, mPullDownDrawable.getIntrinsicWidth(), mPullDownDrawable.getIntrinsicHeight());
 			mPullUpDrawable.setBounds(0, 0, mPullUpDrawable.getIntrinsicWidth(), mPullUpDrawable.getIntrinsicHeight());

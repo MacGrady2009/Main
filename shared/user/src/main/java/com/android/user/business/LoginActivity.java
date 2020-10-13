@@ -40,7 +40,6 @@ public class LoginActivity extends BaseActivity implements LoginView {
 
     @Override
     public void onLogin(LoginRes userBean) {
-        hideProgress();
         SpUtils.putBoolean(this, ModuleConstant.IS_LOGIN,true);
         skip();
     }

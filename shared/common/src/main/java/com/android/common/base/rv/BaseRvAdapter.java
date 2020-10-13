@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import com.android.common.base.BaseHolder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,9 +43,6 @@ public abstract class BaseRvAdapter<T> extends RecyclerView.Adapter {
 
     public BaseRvAdapter(@NonNull Context context, List<T> datas) {
         this.mContext = context;
-        if (datas != null) {
-            this.mDatas.addAll(datas);
-        }
     }
 
     public void setData(List<T> datas){
@@ -108,8 +106,8 @@ public abstract class BaseRvAdapter<T> extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
-        if (holder instanceof BaseRvHolder) {
-            BaseRvHolder dataRecyclerViewHolder = (BaseRvHolder) holder;
+        if (holder instanceof BaseHolder) {
+            BaseHolder dataRecyclerViewHolder = (BaseHolder) holder;
             dataRecyclerViewHolder.toBindData(getItem(holder.getAdapterPosition()), holder.getAdapterPosition());
             // 点击事件的处理
             initClickListener(holder, holder.getAdapterPosition());

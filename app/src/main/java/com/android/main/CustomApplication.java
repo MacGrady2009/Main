@@ -2,12 +2,13 @@ package com.android.main;
 
 import android.app.Application;
 import android.content.res.Configuration;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import com.android.common.utils.ActivityStack;
 import com.android.common.utils.AppUtils;
+import com.android.common.utils.SmartRefreshUtil;
 
 public class CustomApplication extends Application {
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -15,6 +16,7 @@ public class CustomApplication extends Application {
         if (AppUtils.isMainProcess(this)) {
             AppUtils.closeAndroidPDialog();
             registerActivityLifecycleCallbacks(ActivityLifecycle.getInstance());
+            SmartRefreshUtil.getInstance().init();
         }
     }
 
@@ -40,4 +42,5 @@ public class CustomApplication extends Application {
         unregisterActivityLifecycleCallbacks(ActivityLifecycle.getInstance());
         ActivityStack.getInstance().clear();
     }
+
 }

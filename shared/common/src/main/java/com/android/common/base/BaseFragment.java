@@ -101,7 +101,7 @@ public abstract class BaseFragment extends Fragment
     }
 
     public void initTopActionBar() {
-        this.topActionBar.showButtonImage(R.drawable.ic_arrow_title, 1);
+        this.topActionBar.showButtonImage(R.mipmap.ic_arrow_title, 1);
         this.topActionBar.setButtonClickListener(new TopActionBar.OnTopBarButtonClickListener() {
             public void onLeftButtonClick(View view) {
                 BaseFragment.this.onBackPressed();
@@ -208,6 +208,12 @@ public abstract class BaseFragment extends Fragment
 
     @Override
     public void onFailed(ResponseBean responseBean) {
+        hideProgress();
         Toast.makeText(getContext(),responseBean.getMessage()+"["+ responseBean.getCode() +"]",Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onSucceed() {
+        hideProgress();
     }
 }
