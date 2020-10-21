@@ -90,19 +90,7 @@
         <enum name="night" value="1" />
     </attr>
     <attr name="item_background" format="color" />
-    <declare-styleable name="TopActionBar">
-        <attr name="topbarTitle" format="string" />
-        <attr name="topbarIsLeftShow" format="boolean" />
-        <attr name="topbarLeftImgRes" format="reference" />
-        <attr name="topbarLeftText" format="string" />
-        <attr name="topbarIsRightShow" format="boolean" />
-        <attr name="topbarRightImgRes" format="reference" />
-        <attr name="topbarRightText" format="string" />
-        <attr name="topbarIsRight2Show" format="boolean" />
-        <attr name="topbarRight2ImgRes" format="reference" />
-        <attr name="topbarRight2Text" format="string" />
-        <attr name="android:background" />
-    </declare-styleable>
+
     <declare-styleable name="PopupBar">
         <attr name="popup_underlineColor" format="color" />
         <attr name="popup_dividerColor" format="color" />

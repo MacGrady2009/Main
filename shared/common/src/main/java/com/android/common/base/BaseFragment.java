@@ -13,7 +13,6 @@ import com.android.common.network.ResponseBean;
 import com.android.common.utils.AppUtils;
 import com.android.common.utils.FragmentStack;
 import com.android.common.view.ExceptionView;
-import com.android.common.view.TopActionBar;
 import com.android.common.widget.AllDialog;
 import com.android.common.widget.DialogFactory;
 import org.greenrobot.eventbus.EventBus;
@@ -26,7 +25,6 @@ public abstract class BaseFragment extends Fragment
     protected LayoutInflater mLayoutInflater;
     protected Bundle args;
     protected ExceptionView mErrorView;
-    protected TopActionBar topActionBar;
     protected AllDialog loadingDlg;
 
     public BaseFragment() {
@@ -85,35 +83,10 @@ public abstract class BaseFragment extends Fragment
             }
         }
 
-        if (topActionBar != null) {
-            initTopActionBar();
-        }
         onFindView();
         onInitView();
         onInitEvent();
     }
-
-    public void initTopActionBar() {
-        this.topActionBar.showButtonImage(R.mipmap.ic_arrow_title, 1);
-        this.topActionBar.setButtonClickListener(new TopActionBar.OnTopBarButtonClickListener() {
-            public void onLeftButtonClick(View view) {
-                BaseFragment.this.onBackPressed();
-            }
-
-            public void onRightButton2Click(View view) {
-            }
-
-            public void onRightButtonClick(View view) {
-            }
-        });
-    }
-
-    public void setTitle(CharSequence title) {
-        if (this.topActionBar != null) {
-            this.topActionBar.setTitle(title);
-        }
-    }
-
 
     @Override
     public void onDestroyView() {
