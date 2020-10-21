@@ -14,4 +14,5 @@ dependencies {
     implementation project(':shared:user')
     implementation project(':shared:third:zxing')
     implementation project(':shared:third:amap')
+    implementation project(':business:home')
 }

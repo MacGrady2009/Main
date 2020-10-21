@@ -1,3 +1,4 @@
+include ':business:home'
 include ':shared:resource'
 include ':shared:user'
 include ':shared:guide'

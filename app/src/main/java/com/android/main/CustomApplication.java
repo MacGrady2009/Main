@@ -7,6 +7,7 @@ import com.android.common.utils.ActivityStack;
 import com.android.common.utils.AppUtils;
 import com.android.common.utils.SmartRefreshUtil;
 
+
 public class CustomApplication extends Application {
 
     @Override

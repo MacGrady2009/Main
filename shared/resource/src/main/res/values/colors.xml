@@ -4,7 +4,7 @@
     <color name="black">@android:color/black</color>
     <color name="transparent">@android:color/transparent</color>
     <color name="translucency">#7f000000</color>
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">#009587</color>
     <color name="color_030303">#030303</color>
     <color name="color_777373">#777373</color>
     <color name="colorPrimaryDark">#303F9F</color>
