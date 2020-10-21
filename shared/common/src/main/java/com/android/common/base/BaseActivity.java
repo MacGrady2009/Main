@@ -7,17 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import com.android.common.R;
 import com.android.common.utils.ActivityStack;
 import com.android.common.utils.EventBusUtil;
-import com.android.common.view.TopActionBar;
 
 
 public abstract class BaseActivity extends AppCompatActivity{
 
     protected LayoutInflater mLayoutInflater;
     protected View rootView;
-    protected TopActionBar topActionBar;
     protected Intent originIntent = null;
 
     @Override
@@ -38,10 +35,6 @@ public abstract class BaseActivity extends AppCompatActivity{
                 EventBusUtil.register(this);
             }
 
-            if (topActionBar != null) {
-                initTopActionBar();
-            }
-
             onFindView();
             onInitView();
             onInitEvent();
@@ -49,42 +42,9 @@ public abstract class BaseActivity extends AppCompatActivity{
         }
     }
 
-    public void initTopActionBar() {
-        topActionBar.showButtonImage(R.mipmap.ic_arrow_title, TopActionBar.LEFT_AREA);
-        topActionBar.setButtonClickListener(new TopActionBar.OnTopBarButtonClickListener() {
-            public void onLeftButtonClick(View view) {
-                leftButtonClick();
-            }
-
-            public void onRightButton2Click(View view) {
-                right2ButtonClick();
-            }
-
-            public void onRightButtonClick(View view) {
-                rightButtonClick();
-            }
-        });
-    }
-
-    protected void leftButtonClick(){
-        onBackPressed();
-    }
-
-    protected void rightButtonClick() {
-
-    }
-    protected void right2ButtonClick() {
-
-    }
 
     public void onBackClick(View view) {
         onBackPressed();
-    }
-
-    public void setTitle(CharSequence title) {
-        if (this.topActionBar != null) {
-            this.topActionBar.setTitle(title);
-        }
     }
 
     protected boolean needEventBus() {
