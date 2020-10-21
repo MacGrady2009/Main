@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_48">
+
+    <include
+        android:id="@+id/top_action_bar_left_layout"
+        layout="@layout/top_action_bar_content_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:visibility="gone">
+    </include>
+
+    <TextView
+        android:id="@+id/action_bar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxWidth="200dp"
+        android:singleLine="true"
+        android:textColor="@color/text_color_303030"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <include
+        android:id="@+id/top_action_bar_right_layout"
+        layout="@layout/top_action_bar_content_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:visibility="gone">
+    </include>
+
+    <include
+        android:id="@+id/top_action_bar_right_layout2"
+        layout="@layout/top_action_bar_content_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toStartOf="@id/top_action_bar_right_layout"
+        android:visibility="gone">
+    </include>
+
+    <View
+        android:id="@+id/action_bar_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:background="@color/gray005" />
+
+</RelativeLayout>
