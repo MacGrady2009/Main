@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+  <com.android.common.view.CustomViewPager
+      android:id="@+id/viewPager"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:overScrollMode="never"
+      android:requiresFadingEdge="none" />
+
+  <com.android.common.view.pagerindicator.CircleLinePageIndicator
+      android:id="@+id/pager_indicator"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_centerHorizontal="true"
+      android:layout_marginBottom="40dp"
+      app:gapWidth="16dp"
+      app:unSelectRadius="5dp"
+      app:lineWidth="8dp"
+      app:selectedColor="@color/main_bg_yellow"
+      app:unselectedColor="@color/bg_eaeaea" />
+
+  <TextView
+      android:id="@+id/start"
+      android:layout_width="122dp"
+      android:layout_height="38dp"
+      android:layout_alignParentBottom="true"
+      android:layout_centerHorizontal="true"
+      android:layout_marginBottom="71dp"
+      android:background="@drawable/selector_yellow_round_angle"
+      android:gravity="center"
+      android:text="@string/start"
+      android:textColor="@color/text_color_303030"
+      android:textSize="16sp" />
+</RelativeLayout>

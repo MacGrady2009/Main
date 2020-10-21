@@ -16,19 +16,13 @@ public abstract class BaseRvFragment<T>
     public BaseRvBindView<T> mBaseRvBind;
 
     public int onSetRootViewId() {
-        return R.layout.common_base_rv;
+        return R.layout.fragment_base_rv;
     }
 
-    /**
-     * @return 设置layout manager类型
-     */
-    protected int getLayManagerType() {
-        return 1;
-    }
 
     @Override
     protected void onInitView() {
-        mBaseRvBind = new BaseRvBindView(rootView);
+        mBaseRvBind = new BaseRvBindView(mRootView);
         mBaseRvBind.setListener(this);
         mBaseRvBind.setAdapter(initAdapter());
     }

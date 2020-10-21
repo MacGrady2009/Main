@@ -28,7 +28,7 @@ public class HomeSecondFragment extends BaseRvFragment<HomeSecondBean.ResultBean
         return instance;
     }
 
-    private HomeSecondFragment(){
+    public HomeSecondFragment(){
     }
 
     @Override

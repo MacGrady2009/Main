@@ -1,8 +1,7 @@
 package com.android.user.business;
 
-import android.os.Bundle;
 import android.widget.Button;
-import com.android.common.base.BaseActivity;
+import com.android.common.base.BaseFragment;
 import com.android.common.constant.ModuleConstant;
 import com.android.common.utils.Router;
 import com.android.common.utils.SpUtils;
@@ -12,18 +11,19 @@ import com.android.user.mvp.model.LoginRes;
 import com.android.user.mvp.present.LoginPresent;
 import com.android.user.mvp.view.LoginView;
 
-public class LoginActivity extends BaseActivity implements LoginView {
+public class LoginFragment extends BaseFragment
+    implements LoginView {
 
     private LoginPresent present;
 
     private Button mLoginBtn;
     @Override
     protected int onSetRootViewId() {
-        return R.layout.activity_login;
+        return R.layout.fragment_login;
     }
 
     protected void onFindView() {
-        mLoginBtn = findViewById(R.id.btn_login);
+        mLoginBtn = mRootView.findViewById(R.id.btn_login);
     }
 
     @Override
@@ -40,12 +40,12 @@ public class LoginActivity extends BaseActivity implements LoginView {
 
     @Override
     public void onLogin(LoginRes userBean) {
-        SpUtils.putBoolean(this, ModuleConstant.IS_LOGIN,true);
+        SpUtils.putBoolean(this.getContext(), ModuleConstant.IS_LOGIN,true);
         skip();
     }
 
     private void skip(){
-        Router.getInstance().startActivity(this,null, BuildConfig.MAIN);
-        finish();
+        Router.getInstance().startActivity(this.getContext(),null, BuildConfig.MAIN);
+        this.getActivity().finish();
     }
 }

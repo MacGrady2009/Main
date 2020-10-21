@@ -1,14 +1,11 @@
-package com.android.guide.business;
+package com.android.guide.business.fragment;
 
-
-import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
-import com.android.common.base.BaseActivity;
+import com.android.common.base.BaseFragment;
 import com.android.common.constant.ModuleConstant;
 import com.android.common.utils.Router;
 import com.android.common.utils.SpUtils;
@@ -18,11 +15,10 @@ import com.android.guide.BuildConfig;
 import com.android.guide.R;
 import com.android.guide.adapter.GuidePagerAdapter;
 
-/**
- * 引导页面
- */
-public class GuideActivity extends BaseActivity implements
+public class GuideFragment extends BaseFragment implements
     View.OnClickListener{
+
+
     /*滑动页面*/
     CustomViewPager viewPager;
     /*滑动页面标识*/
@@ -34,16 +30,15 @@ public class GuideActivity extends BaseActivity implements
 
     @Override
     protected int onSetRootViewId() {
-        return R.layout.activity_guide;
+        return R.layout.fragment_guide;
     }
-
 
     @Override
     protected void onFindView() {
         super.onFindView();
-        viewPager = findViewById(R.id.viewPager);
-        pageIndicator = findViewById(R.id.pager_indicator);
-        start = findViewById(R.id.start);
+        viewPager = mRootView.findViewById(R.id.viewPager);
+        pageIndicator = mRootView.findViewById(R.id.pager_indicator);
+        start = mRootView.findViewById(R.id.start);
     }
 
     @Override
@@ -54,7 +49,7 @@ public class GuideActivity extends BaseActivity implements
         start.setAlpha(0.0f);
         start.setVisibility(View.GONE);
 
-        adapter = new GuidePagerAdapter(this);
+        adapter = new GuidePagerAdapter(this.getContext());
         viewPager.setAdapter(adapter);
         pageIndicator.setViewPager(viewPager);
         viewPager.addOnPageChangeListener(new GuidePageChange());
@@ -68,7 +63,7 @@ public class GuideActivity extends BaseActivity implements
 
     @Override
     public void onClick(View view) {
-        SpUtils.putBoolean(this, ModuleConstant.IS_GUIDED,true);
+        SpUtils.putBoolean(this.getContext(), ModuleConstant.IS_GUIDED,true);
         skip();
     }
 
@@ -99,17 +94,12 @@ public class GuideActivity extends BaseActivity implements
     }
 
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        return false;
-    }
-
     private void skip() {
-        if (!SpUtils.getBoolean(this, ModuleConstant.IS_LOGIN, false)) {
-            Router.getInstance().startActivity(this, null, BuildConfig.LOGIN);
+        if (!SpUtils.getBoolean(this.getContext(), ModuleConstant.IS_LOGIN, false)) {
+            Router.getInstance().startActivity(this.getContext(), null, BuildConfig.LOGIN);
         } else {
-            Router.getInstance().startActivity(this, null, BuildConfig.MAIN);
+            Router.getInstance().startActivity(this.getContext(), null, BuildConfig.MAIN);
         }
-        finish();
+        getActivity().finish();
     }
 }

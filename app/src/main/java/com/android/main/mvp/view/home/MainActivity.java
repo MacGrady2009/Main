@@ -1,4 +1,4 @@
-package com.android.main.business.home.activity;
+package com.android.main.mvp.view.home;
 
 import android.view.View;
 import android.widget.ImageView;

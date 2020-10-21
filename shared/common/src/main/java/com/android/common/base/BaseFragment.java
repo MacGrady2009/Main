@@ -22,7 +22,7 @@ import org.greenrobot.eventbus.EventBus;
 public abstract class BaseFragment extends Fragment
     implements BaseView{
     protected Activity mActivity;
-    protected ViewGroup rootView;
+    protected ViewGroup mRootView;
     protected LayoutInflater mLayoutInflater;
     protected Bundle args;
     protected ExceptionView mErrorView;
@@ -47,26 +47,19 @@ public abstract class BaseFragment extends Fragment
     @Nullable
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.mLayoutInflater = inflater;
-        if (null != rootView) {
-            ViewGroup parent = (ViewGroup) rootView.getParent();
-            if (null != parent) {
-                parent.removeView(rootView);
-            }
-        } else {
-            this.rootView = (ViewGroup) this.mLayoutInflater.inflate(this.onSetRootViewId(), container, false);
-        }
+        this.mRootView = (ViewGroup) this.mLayoutInflater.inflate(this.onSetRootViewId(), container, false);
 
         if (needSpecialErrorView()) {
             addSpecialErrorView();
         }
 
-        mErrorView = rootView.findViewById(R.id.errorView);
+        mErrorView = mRootView.findViewById(R.id.errorView);
 
         if (mErrorView != null) {
             initErrorView();
         }
 
-        return this.rootView;
+        return this.mRootView;
     }
 
     @Override
@@ -139,7 +132,7 @@ public abstract class BaseFragment extends Fragment
     }
 
     private void addSpecialErrorView() {
-        rootView.addView(mLayoutInflater.inflate(R.layout.layout_special_error_view, rootView, false));
+        mRootView.addView(mLayoutInflater.inflate(R.layout.layout_special_error_view, mRootView, false));
     }
 
     protected boolean needSpecialErrorView() {
@@ -164,7 +157,7 @@ public abstract class BaseFragment extends Fragment
         onLoadData();
     }
 
-    public abstract int onSetRootViewId();
+    protected abstract int onSetRootViewId();
 
     protected void onFindView() {
     }

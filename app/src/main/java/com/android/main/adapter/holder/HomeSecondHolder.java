@@ -29,7 +29,6 @@ public class HomeSecondHolder extends BaseHolder<HomeSecondBean.ResultBean> {
     }
 
     @Override
-
     public void bindData(HomeSecondBean.ResultBean resultBean, int position) {
         mTvExamRoom.setText(resultBean.getExamRoomName());
         String questionDesc = String.format(mContext.getResources().getString(R.string.real_exam_question_des_sign_full)

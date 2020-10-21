@@ -11,7 +11,7 @@
       android:supportsRtl="true"
       android:theme="@style/AppTheme">
     <activity
-        android:name=".business.home.activity.MainActivity"
+        android:name=".mvp.view.home.MainActivity"
         android:screenOrientation="portrait">
       <intent-filter>
         <action android:name="android.intent.action.VIEW" />
@@ -25,7 +25,7 @@
       </intent-filter>
     </activity>
     <activity
-        android:name=".business.home.activity.HomeSecondActivity"
+        android:name=".mvp.view.home.HomeSecondActivity"
         android:screenOrientation="portrait">
       <intent-filter>
         <action android:name="android.intent.action.VIEW" />

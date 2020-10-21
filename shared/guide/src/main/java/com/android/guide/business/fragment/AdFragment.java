@@ -1,12 +1,10 @@
-package com.android.guide.business;
+package com.android.guide.business.fragment;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
+import com.android.common.base.BaseFragment;
 import com.android.common.constant.Constant;
-import com.android.common.base.BaseActivity;
 import com.android.common.constant.ModuleConstant;
 import com.android.common.utils.Router;
 import com.android.common.utils.SpUtils;
@@ -16,11 +14,8 @@ import com.android.guide.mvp.model.AdBean;
 import com.android.guide.mvp.present.AdPresent;
 import com.android.guide.mvp.view.AdView;
 
-/**
- * 广告页
- */
-public class AdActivity extends BaseActivity implements AdView
-    , View.OnClickListener {
+public class AdFragment extends BaseFragment implements AdView
+    , View.OnClickListener{
 
     private AdPresent present;
 
@@ -32,23 +27,19 @@ public class AdActivity extends BaseActivity implements AdView
 
     @Override
     protected int onSetRootViewId() {
-        return R.layout.activity_ad;
+        return R.layout.fragment_ad;
     }
 
     @Override
     protected void onFindView() {
         super.onFindView();
-        mIvAd = findViewById(R.id.img_ad);
-        mTvAdTime = findViewById(R.id.tv_ad_time);
-        mTvRight = findViewById(R.id.tv_right);
+        mIvAd = mRootView.findViewById(R.id.img_ad);
+        mTvAdTime = mRootView.findViewById(R.id.tv_ad_time);
+        mTvRight = mRootView.findViewById(R.id.tv_right);
     }
 
     @Override
     protected void onInitView() {
-        if (!isTaskRoot()){
-            finish();
-            return;
-        };
         String right = String.format(getString(R.string.right), "2020");
         mTvRight.setText(right);
         present = new AdPresent(this);
@@ -85,38 +76,39 @@ public class AdActivity extends BaseActivity implements AdView
     }
 
     private void skip(){
-        if (!SpUtils.getBoolean(this, ModuleConstant.IS_GUIDED,false)){
-            Router.getInstance().startActivity(this,null, BuildConfig.GUIDE);
-            finish();
-        }else if (!SpUtils.getBoolean(this,ModuleConstant.IS_LOGIN,false)){
-            Router.getInstance().startActivity(this,null, BuildConfig.LOGIN);
-            finish();
+        if (!SpUtils.getBoolean(this.getContext(), ModuleConstant.IS_GUIDED,false)){
+            Router.getInstance().startActivity(this.getContext(),null, BuildConfig.GUIDE);
+            this.getActivity().finish();
+        }else if (!SpUtils.getBoolean(this.getContext(),ModuleConstant.IS_LOGIN,false)){
+            Router.getInstance().startActivity(this.getContext(),null, BuildConfig.LOGIN);
+            this.getActivity().finish();
         }else {
-            Router.getInstance().startActivity(this,null, BuildConfig.MAIN);
-            finish();
+            Router.getInstance().startActivity(this.getContext(),null, BuildConfig.MAIN);
+            this.getActivity().finish();
         }
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
     }
 
     @Override
-    protected void onStop() {
+    public void onStop() {
         super.onStop();
         present.setActivityState(true);
     }
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         present.setActivityState(false);
     }
 
     @Override
-    protected void onDestroy() {
+    public void onDestroy() {
         super.onDestroy();
         present = null;
     }
+
 }
