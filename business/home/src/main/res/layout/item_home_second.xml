@@ -61,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp_5"
                     android:gravity="center_vertical"
-                    android:textColor="@color/text_color_303030"
+                    android:textColor="@color/color_303030"
                     android:textSize="@dimen/sp_13" />
 
             </LinearLayout>
@@ -72,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp_8"
                 android:layout_marginTop="@dimen/dp_17"
-                android:textColor="@color/text_color_303030"
+                android:textColor="@color/color_303030"
                 android:textSize="@dimen/sp_13" />
 
             <TextView

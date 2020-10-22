@@ -58,4 +58,33 @@ public class Constant {
      * 分页每页条目数
      */
     public static final long ITEMS_EVERY_PAGE = 20;
+
+    /**
+     * 权限请求码
+     */
+    public static final int PERMISSIONS_REQUEST_CODE = 1;
+    /**
+     * 写存储权限
+     */
+    public static final int PERMISSION_STORAGE_REQUEST_CODE = PERMISSIONS_REQUEST_CODE + 1;
+    /**
+     * 相机、相册权限
+     */
+    public static final int PERMISSION_CAMERA_REQUEST_CODE = PERMISSION_STORAGE_REQUEST_CODE + 1;
+    /**
+     * 读取电话状态和识别码
+     */
+    public static final int PERMISSION_PHONE_REQUEST_CODE = PERMISSION_CAMERA_REQUEST_CODE + 1;
+    /**
+     * 地理位置
+     */
+    public static final int PERMISSION_LOCATION_REQUEST_CODE = PERMISSION_PHONE_REQUEST_CODE  + 1;
+    /**
+     * 麦克风位置
+     */
+    public static final int PERMISSION_MICROPHONE_REQUEST_CODE = PERMISSION_LOCATION_REQUEST_CODE + 1;
+    /**
+     * 安装apk权限
+     */
+    public static final int PERMISSION_INSTALL_REQUEST_CODE = PERMISSION_MICROPHONE_REQUEST_CODE + 1;
 }

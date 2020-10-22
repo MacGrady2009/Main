@@ -13,6 +13,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.View;
 import androidx.core.content.FileProvider;
@@ -290,12 +291,22 @@ public class AppUtils {
         }
     }
 
-    public static void openSetting(Activity activity) {
-        Intent intent = new Intent("/");
-        ComponentName cm = new ComponentName("com.android.settings", "com.android.settings.WirelessSettings");
-        intent.setComponent(cm);
-        intent.setAction("android.intent.action.VIEW");
-        activity.startActivityForResult(intent, 0);
+    /**
+     * 直接打开设置界面
+     * @param activity
+     */
+    public static void openSettings(Activity activity) {
+        activity.startActivity(new Intent(Settings.ACTION_SETTINGS));
     }
 
+
+    public static void openAppsManagerSettings(Activity activity) {
+        activity.startActivity(new Intent(Settings.ACTION_APPLICATION_SETTINGS));
+    }
+
+    public static void openAppManagerSettings(Activity activity) {
+        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        intent.setData(Uri.fromParts("package", activity.getPackageName(), null));
+        activity.startActivity(intent);
+    }
 }

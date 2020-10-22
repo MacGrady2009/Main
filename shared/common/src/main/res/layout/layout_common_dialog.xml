@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:minHeight="150dp"
+        android:paddingTop="20dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:maxLength="6"
+            android:paddingEnd="15dp"
+            android:paddingStart="15dp"
+            android:textColor="@color/color_303030"
+            android:textSize="18sp"
+            android:background="@mipmap/round_circular_bg"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="标题" />
+        <!--中间内容框-->
+
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:paddingBottom="8dp"
+            android:paddingEnd="15dp"
+            android:paddingStart="15dp"
+            android:paddingTop="8dp"
+            android:textColor="@color/color_606060"
+            android:textSize="16sp"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            tools:text="内容"
+            tools:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/cancel"
+            style="@style/style_btn_dlg_bottom"
+            android:background="@drawable/shape_lb_corner_rect_yellow_bg"
+            android:textColor="@color/color_606060"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ok"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/content"
+            app:layout_constraintVertical_bias="1"
+            tools:text="取消" />
+
+        <!--底部右边button-->
+        <TextView
+            android:id="@+id/ok"
+            style="@style/style_btn_dlg_bottom"
+            android:background="@drawable/shape_rb_corner_rect_yello_bg"
+            android:textColor="@color/color_303030"
+            app:layout_constraintBottom_toBottomOf="@id/cancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/cancel"
+            app:layout_constraintTop_toTopOf="@id/cancel"
+            tools:text="确定" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
