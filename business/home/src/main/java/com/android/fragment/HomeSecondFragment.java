@@ -34,6 +34,7 @@ public class HomeSecondFragment extends BaseRvFragment<HomeSecondBean.ResultBean
     @Override
     protected void onInitView() {
         super.onInitView();
+        setTitle(getString(R.string.contact));
         present = new HomeSecondPresent(this);
     }
 

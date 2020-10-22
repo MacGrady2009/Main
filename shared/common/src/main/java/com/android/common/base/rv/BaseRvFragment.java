@@ -2,6 +2,7 @@ package com.android.common.base.rv;
 
 import static com.android.common.constant.Constant.ITEMS_EVERY_PAGE;
 import android.view.View;
+import android.widget.TextView;
 import androidx.annotation.UiThread;
 import com.android.common.R;
 import com.android.common.base.BaseFragment;
@@ -13,6 +14,8 @@ import java.util.List;
 public abstract class BaseRvFragment<T>
     extends BaseFragment implements BaseRvBindView.Listener{
 
+    private TextView tvToolbarTitle;
+
     public BaseRvBindView<T> mBaseRvBind;
 
     public int onSetRootViewId() {
@@ -22,6 +25,7 @@ public abstract class BaseRvFragment<T>
 
     @Override
     protected void onInitView() {
+        tvToolbarTitle = mRootView.findViewById(R.id.tv_toolbar_title);
         mBaseRvBind = new BaseRvBindView(mRootView);
         mBaseRvBind.setListener(this);
         mBaseRvBind.setAdapter(initAdapter());
@@ -115,5 +119,9 @@ public abstract class BaseRvFragment<T>
             }
             mBaseRvBind.refreshOrLoadFailed();
         }
+    }
+
+    public void setTitle(String title){
+        tvToolbarTitle.setText(title);
     }
 }

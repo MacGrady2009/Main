@@ -44,7 +44,9 @@
     <dimen name="px_57">57px</dimen>
     <dimen name="px_64">64px</dimen>
     <dimen name="px_70">70px</dimen>
+    <dimen name="px_80">80px</dimen>
     <dimen name="px_82">82px</dimen>
+    <dimen name="px_90">90px</dimen>
     <dimen name="px_92">92px</dimen>
     <dimen name="px_105">105px</dimen>
     <dimen name="px_150">150px</dimen>
