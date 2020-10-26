@@ -1,6 +1,6 @@
 package com.android.common.base;
 
-import com.android.common.network.Constant;
+import com.android.common.constant.Constant;
 import com.android.common.network.ResponseBean;
 import com.android.common.utils.RxUtils;
 import io.reactivex.rxjava3.core.Observer;

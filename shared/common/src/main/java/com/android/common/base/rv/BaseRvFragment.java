@@ -14,8 +14,6 @@ import java.util.List;
 public abstract class BaseRvFragment<T>
     extends BaseFragment implements BaseRvBindView.Listener{
 
-    private TextView tvToolbarTitle;
-
     public BaseRvBindView<T> mBaseRvBind;
 
     public int onSetRootViewId() {
@@ -25,7 +23,6 @@ public abstract class BaseRvFragment<T>
 
     @Override
     protected void onInitView() {
-        tvToolbarTitle = mRootView.findViewById(R.id.tv_toolbar_title);
         mBaseRvBind = new BaseRvBindView(mRootView);
         mBaseRvBind.setListener(this);
         mBaseRvBind.setAdapter(initAdapter());
@@ -119,9 +116,5 @@ public abstract class BaseRvFragment<T>
             }
             mBaseRvBind.refreshOrLoadFailed();
         }
-    }
-
-    public void setTitle(String title){
-        tvToolbarTitle.setText(title);
     }
 }

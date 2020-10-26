@@ -1,15 +1,16 @@
 package com.android.common.base;
 
 import android.app.Activity;
-import android.app.Dialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import com.android.common.R;
 import com.android.common.constant.Constant;
@@ -19,21 +20,23 @@ import com.android.common.utils.FragmentStack;
 import com.android.common.utils.permission.FragmentPermissionDispatcher;
 import com.android.common.utils.permission.PermissionCallback;
 import com.android.common.view.ExceptionView;
+import com.android.common.view.ToolBarBinding;
 import com.android.common.widget.AllDialog;
 import com.android.common.widget.DialogFactory;
 import org.greenrobot.eventbus.EventBus;
 
-
 public abstract class BaseFragment extends Fragment
-    implements BaseView ,PermissionCallback{
+    implements BaseView ,PermissionCallback, ToolBarBinding.Listener{
     protected Activity mActivity;
-    protected ViewGroup mRootView;
+    protected LinearLayout mRootView;
+    protected Toolbar mToolBar;
+    protected ToolBarBinding mToolBarBinding;
+    protected FrameLayout mContentView;
     protected LayoutInflater mLayoutInflater;
     protected Bundle args;
     protected ExceptionView mErrorView;
     protected AllDialog loadingDlg;
     protected AllDialog permissionDialog;
-
     private FragmentPermissionDispatcher dispatcher;
 
     public BaseFragment() {
@@ -51,11 +54,13 @@ public abstract class BaseFragment extends Fragment
     }
 
     @Override
-    @Nullable
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        this.mLayoutInflater = inflater;
-        this.mRootView = (ViewGroup) this.mLayoutInflater.inflate(this.onSetRootViewId(), container, false);
-
+        mLayoutInflater = inflater;
+        mRootView = (LinearLayout) mLayoutInflater.inflate(R.layout.fragment_base, container, false);
+        mToolBar = mRootView.findViewById(R.id.toolbar);
+        mContentView = mRootView.findViewById(R.id.fl_rootContent);
+        mLayoutInflater.inflate(onSetRootViewId(),mContentView);
+        mToolBarBinding = new ToolBarBinding(mToolBar);
         if (needSpecialErrorView()) {
             addSpecialErrorView();
         }
@@ -64,6 +69,14 @@ public abstract class BaseFragment extends Fragment
         if (mErrorView != null) {
             initErrorView();
         }
+
+        if (!onNeedToolBar()){
+            mToolBar.setVisibility(View.GONE);
+        }
+
+        mToolBarBinding.showBack(onNeedBack());
+        mToolBarBinding.setTitleText(onSetTitleText());
+        mToolBarBinding.setListener(this);
         return this.mRootView;
     }
 
@@ -109,7 +122,7 @@ public abstract class BaseFragment extends Fragment
     }
 
     private void addSpecialErrorView() {
-        mRootView.addView(mLayoutInflater.inflate(R.layout.layout_special_error_view, mRootView, false));
+        mContentView.addView(mLayoutInflater.inflate(R.layout.layout_special_error_view, mRootView, false));
     }
 
     protected boolean needSpecialErrorView() {
@@ -147,6 +160,25 @@ public abstract class BaseFragment extends Fragment
 
     protected void onLoadData() {
     }
+
+    //toolbar start
+    protected boolean onNeedToolBar(){
+        return true;
+    }
+
+    protected boolean onNeedBack(){
+        return true;
+    }
+
+    protected String onSetTitleText(){
+        return "";
+    }
+
+    @Override
+    public void onBackClickListener() {
+        getActivity().finish();
+    }
+    //toolbar end
 
     private void initPermission(){
         dispatcher = FragmentPermissionDispatcher.getInstance();

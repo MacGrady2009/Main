@@ -14,7 +14,18 @@ public class Constant {
      * http 写超时
      */
     public static final long HTTP_WRITE_TIMEOUT = 15000;
-
+    /**
+     * http success
+     */
+    public static final  int SUCCESS = 10000;
+    /**
+     * 登录退出
+     */
+    public static final  int LOGOUT = SUCCESS + 1;
+    /**
+     * http error
+     */
+    public static final  int ERROR = 99999;
     /**
      * META_DATA SCHEME
      */
@@ -87,4 +98,16 @@ public class Constant {
      * 安装apk权限
      */
     public static final int PERMISSION_INSTALL_REQUEST_CODE = PERMISSION_MICROPHONE_REQUEST_CODE + 1;
+    /**
+     * webView url
+     */
+    public static final String URL_KEY = "urlKey";
+    /**
+     * webView title
+     */
+    public static final String TITLE_KEY = "titleKey";
+    /**
+     *
+     */
+    public static final int REQUEST_FILE_CHOOSER = 0;
 }

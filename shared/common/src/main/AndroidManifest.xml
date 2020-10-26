@@ -23,6 +23,10 @@
     </provider>
     <provider
         android:name=".db.AppProvider" android:authorities="${AUTH_URL}" android:exported="true" android:grantUriPermissions="true" android:multiprocess="true"></provider>
+
+    <activity android:name=".base.BaseWebViewActivity"
+        android:exported="true"
+        android:screenOrientation="portrait"/>
   </application>
 
 </manifest>

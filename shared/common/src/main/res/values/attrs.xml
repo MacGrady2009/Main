@@ -218,4 +218,90 @@
         <attr name="bgRes" format="reference|color" />
     </declare-styleable>
 
+    <!--自定义WebView配置-->
+    <declare-styleable name="TXWebView">
+        <!--是否与Javascript交互-->
+        <attr name="javaScriptEnabled" format="boolean" />
+        <!--是否支持多窗口，默认值false-->
+        <attr name="supportMultipleWindows" format="boolean" />
+        <!--是否将图片调整到适合webview的大小-->
+        <attr name="useWideViewPort" format="boolean" />
+        <!--是否缩放至屏幕的大小-->
+        <attr name="loadWithOverviewMode" format="boolean" />
+        <!--是否支持缩放-->
+        <attr name="supportZoom" format="boolean" />
+        <!--布局算法-->
+        <attr name="layoutAlgorithm" format="enum">
+            <!--对应WebSettings.LayoutAlgorithm.NORMAL-->
+            <enum name="normal" value="0" />
+            <!--对应WebSettings.LayoutAlgorithm.SINGLE_COLUMN-->
+            <enum name="single_column" value="1" />
+            <!--对应WebSettings.LayoutAlgorithm.NARROW_COLUMNS-->
+            <enum name="narrow_columns" value="2" />
+        </attr>
+
+        <!--WebView是否可以缩放-->
+        <attr name="builtInZoomControls" format="boolean" />
+        <!--是否显示原生的缩放控件-->
+        <attr name="displayZoomControls" format="boolean" />
+        <!--文本的缩放倍数-->
+        <attr name="textZoom" format="integer" />
+        <!--字体的大小-->
+        <attr name="defaultFontSize" format="integer" />
+        <!--支持的最小字体大小-->
+        <attr name="minimumFontSize" format="integer" />
+        <!--5.1以上默认禁止了https和http混用，通过该设置可以控制是否开启-->
+        <attr name="mixedContentMode">
+            <!--对应 MIXED_CONTENT_ALWAYS_ALLOW-->
+            <enum name="always_allow" value="0" />
+            <!--对应 MIXED_CONTENT_NEVER_ALLOW-->
+            <enum name="never_allow" value="1" />
+            <!--对应 MIXED_CONTENT_COMPATIBILITY_MODE-->
+            <enum name="compatibility_mode" value="2" />
+        </attr>
+        <!--缓存模式-->
+        <attr name="cacheMode">
+            <!--LOAD_DEFAULT: 根据cache-control决定是否从网络上取数据。 -->
+            <enum name="load_default" value="-1" />
+            <!--LOAD_CACHE_NORMAL: API level 17中已经废弃, 从API level 11开始作用同LOAD_DEFAULT模式 -->
+            <enum name="load_normal" value="0" />
+            <!--LOAD_CACHE_ELSE_NETWORK，只要本地有，无论是否过期，或者no-cache，都使用缓存中的数据-->
+            <enum name="load_cache_else_network" value="1" />
+            <!--LOAD_NO_CACHE: 不使用缓存，只从网络获取数据 -->
+            <enum name="load_no_cache" value="2" />
+            <!--对应 LOAD_CACHE_ONLY-->
+            <enum name="load_cache_only" value="3" />
+        </attr>
+        <!--是否允许WebView使用File协议-->
+        <attr name="allowFileAccess" format="boolean" />
+        <!-- 是否可访问Content Provider的资源，默认值 true-->
+        <attr name="allowContentAccess" format="boolean" />
+        <!--是否允许通过file url加载的Javascript读取其他的本地文件-->
+        <attr name="allowFileAccessFromFileURLs" format="boolean" />
+        <!--是否允许通过file url加载的Javascript可以访问其他的源，包括其他的文件和http,https等其他的源-->
+        <attr name="allowUniversalAccessFromFileURLs" format="boolean" />
+        <!--是否支持通过JS打开新窗口-->
+        <attr name="javaScriptCanOpenWindowsAutomatically" format="boolean" />
+        <!--是否支持自动加载图片-->
+        <attr name="loadsImagesAutomatically" format="boolean" />
+        <!--设置编码格式-->
+        <!--<attr name="defaultTextEncodingName">
+            <enum name="utf8" value="utf-8" />
+        </attr>-->
+        <!--是否允许网页执行定位操作-->
+        <attr name="geolocationEnabled" format="boolean" />
+        <!--设置User-Agent-->
+        <!--<attr name="userAgentString" format="string" />-->
+        <!--是否开启 DOM storage API 功能-->
+        <attr name="domStorageEnabled" format="boolean" />
+        <!--数据库存储API是否可用-->
+        <attr name="databaseEnabled" format="boolean" />
+        <!--是否开启 Application Caches 功能 方便构建离线APP-->
+        <attr name="appCacheEnabled" format="boolean" />
+        <attr name="appCachePath" format="string" />
+        <attr name="appCacheMaxSize" format="integer" />
+        <!--是否设置cookie-->
+        <attr name="cookie" format="boolean" />
+    </declare-styleable>
+
 </resources>

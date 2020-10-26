@@ -39,6 +39,11 @@ public class LoginFragment extends BaseFragment
     }
 
     @Override
+    protected boolean onNeedToolBar() {
+        return false;
+    }
+
+    @Override
     public void onLogin(LoginRes userBean) {
         SpUtils.putBoolean(this.getContext(), ModuleConstant.IS_LOGIN,true);
         skip();

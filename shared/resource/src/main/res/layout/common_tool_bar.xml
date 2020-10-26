@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="44dp"
+    android:background="@color/colorPrimary">
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_gravity="left|center_vertical"
+        android:scaleType="centerInside"
+        android:src="@mipmap/toolbar_back" />
+
+    <TextView
+        android:id="@+id/tv_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|center_vertical"
+        android:layout_marginLeft="15dp"
+        android:text="取消"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dp_28"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxEms="8"
+        android:maxLines="1"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/titleImg"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:id="@+id/tv_toolbar_right"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_gravity="right"
+        android:enabled="false"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="完成"
+        android:textColor="@drawable/selector_white_gray"
+        android:textSize="@dimen/dp_30"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/ll_toolbar_more"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="right|center_vertical"
+        android:gravity="right|center_vertical"
+        android:paddingLeft="@dimen/dp_30"
+        android:paddingRight="@dimen/dp_46"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_toolbar_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/toolbar_more" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_toolbar_group"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="right|center_vertical"
+        android:gravity="right|center_vertical"
+        android:paddingLeft="@dimen/dp_33"
+        android:paddingRight="@dimen/dp_33"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_toolbar_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/toolbar_group" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/my_toolbar_toolayout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="right|center_vertical"
+        android:gravity="right|center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/dp_33"
+        android:paddingRight="@dimen/dp_33"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/my_toolbar_toolimage"
+            android:layout_width="@dimen/dp_38"
+            android:layout_height="@dimen/dp_38"
+            android:layout_marginBottom="@dimen/dp_6" />
+
+        <TextView
+            android:id="@+id/my_toolbar_tooltv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="历史"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/dp_22"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</androidx.appcompat.widget.Toolbar>

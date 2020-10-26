@@ -179,7 +179,7 @@ public class TabLayoutUtil {
                                       final float commonTextSize, final float selectedTextSize) {
         final TextView[] tabText = new TextView[titles.length];
         for (int i = 0; i < titles.length; i++) {
-            TextView textView = (TextView) LayoutInflater.from(context).inflate(R.layout.tabitem_main,
+            TextView textView = (TextView) LayoutInflater.from(context).inflate(R.layout.tab_item_main,
                     tabLayout, false);
             textView.setText(titles[i]);
             if (i == 0) {

@@ -17,10 +17,10 @@ public class AdActivity extends BaseActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         if (!isTaskRoot()){
             finish();
             return;
         };
-        super.onCreate(savedInstanceState);
     }
 }

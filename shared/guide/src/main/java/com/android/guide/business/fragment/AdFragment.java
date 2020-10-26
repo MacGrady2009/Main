@@ -53,6 +53,11 @@ public class AdFragment extends BaseFragment implements AdView
     }
 
     @Override
+    protected boolean onNeedToolBar() {
+        return false;
+    }
+
+    @Override
     public void onCountDown(long second) {
         String skip = String.format(getString(R.string.skip), second);
         mTvAdTime.setText(skip);

@@ -1,6 +1,7 @@
 package com.android.common.network;
 
 import com.android.common.base.BaseEvent;
+import com.android.common.constant.Constant;
 import org.greenrobot.eventbus.EventBus;
 
 /**

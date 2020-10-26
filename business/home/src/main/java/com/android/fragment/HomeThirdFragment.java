@@ -14,7 +14,7 @@ public class HomeThirdFragment extends BaseFragment {
         return instance;
     }
 
-    private HomeThirdFragment(){
+    public HomeThirdFragment(){
     }
 
     @Override
@@ -35,5 +35,15 @@ public class HomeThirdFragment extends BaseFragment {
     @Override
     protected void onInitEvent() {
         super.onInitEvent();
+    }
+
+    @Override
+    protected boolean onNeedBack() {
+        return false;
+    }
+
+    @Override
+    protected String onSetTitleText() {
+        return getString(R.string.my);
     }
 }

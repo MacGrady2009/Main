@@ -14,7 +14,7 @@ public class HomeFirstFragment extends BaseFragment {
         return instance;
     }
 
-    private HomeFirstFragment(){
+    public HomeFirstFragment(){
     }
 
 
@@ -38,4 +38,13 @@ public class HomeFirstFragment extends BaseFragment {
         super.onInitEvent();
     }
 
+    @Override
+    protected boolean onNeedBack() {
+        return false;
+    }
+
+    @Override
+    protected String onSetTitleText() {
+        return getString(R.string.home);
+    }
 }

@@ -20,6 +20,8 @@ public class HomeSecondFragment extends BaseRvFragment<HomeSecondBean.ResultBean
 
     private HomeSecondPresent present;
 
+    private boolean mNeedBack = false;
+
     public static HomeSecondFragment getInstance(){
         if (null == instance){
             instance = new HomeSecondFragment();
@@ -34,8 +36,17 @@ public class HomeSecondFragment extends BaseRvFragment<HomeSecondBean.ResultBean
     @Override
     protected void onInitView() {
         super.onInitView();
-        setTitle(getString(R.string.contact));
         present = new HomeSecondPresent(this);
+    }
+
+    @Override
+    protected boolean onNeedBack() {
+        return mNeedBack;
+    }
+
+    @Override
+    protected String onSetTitleText() {
+        return getString(R.string.contact);
     }
 
     @Override
@@ -86,5 +97,9 @@ public class HomeSecondFragment extends BaseRvFragment<HomeSecondBean.ResultBean
     @Override
     protected boolean needSpecialErrorView() {
         return true;
+    }
+
+    public void setNeedBack(boolean needBack) {
+        this.mNeedBack = needBack;
     }
 }

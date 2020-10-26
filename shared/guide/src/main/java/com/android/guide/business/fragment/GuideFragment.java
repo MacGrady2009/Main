@@ -62,6 +62,11 @@ public class GuideFragment extends BaseFragment implements
     }
 
     @Override
+    protected boolean onNeedToolBar() {
+        return false;
+    }
+
+    @Override
     public void onClick(View view) {
         SpUtils.putBoolean(this.getContext(), ModuleConstant.IS_GUIDED,true);
         skip();
